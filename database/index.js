@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/about');
+mongoose.connect('mongodb://localhost/about', { useNewUrlParser: true });
 
 let hotelSchema = new mongoose.Schema({
-  {
     _id: Number,
     hotel_name: String,
     description: String,
@@ -46,7 +45,6 @@ let hotelSchema = new mongoose.Schema({
     languages_spoken: Array,
     hotel_style: Array,
     hotel_website: String
-  }
 })
 
 let Hotels = mongoose.model('Hotel', hotelSchema);
