@@ -3,48 +3,49 @@ mongoose.connect('mongodb://localhost/about');
 
 let hotelSchema = new mongoose.Schema({
   {
-    hotelName: String,
+    _id: Number,
+    hotel_name: String,
     description: String,
-    numberOfReviews: Number,
-    overallRating: Number,
+    number_of_reviews: Number,
+    overall_rating: Number,
     rank: Number,
-    locationRating: Number,
-    cleanlinessRating: Number,
-    serviceRating: Number,
-    valueRating: Number,
-    propertyAmenities: {
-      valetParking: Boolean,
+    location_rating: Number,
+    cleanliness_rating: Number,
+    service_rating: Number,
+    value_rating: Number,
+    property_amenities: {
+      valet_parking: Boolean,
       pool: Boolean,
-      freeBreakfast: Boolean,
+      free_breakfast: Boolean,
       beach: Boolean,
       babysitting: Boolean,
-      freeInternet: Boolean,
-      fitnessCenter: Boolean,
+      free_internet: Boolean,
+      fitness_center: Boolean,
       entertainment: Boolean,
-      businessCenter: Boolean,
+      business_center: Boolean,
       spa: Boolean
     },
-    roomFeatures: {
-      airConditioning: Boolean,
-      roomService: Boolean,
-      flatscreenTV: Boolean,
+    room_features: {
+      air_conditioning: Boolean,
+      room_service: Boolean,
+      flatscreen_TV: Boolean,
       safe: Boolean,
-      wakeUpServiceAlarm: Boolean,
+      wake_up_service: Boolean,
       housekeeping: Boolean,
       iron: Boolean,
       balcony: Boolean
     },
-    roomTypes: {
+    room_types: {
       oceanView: Boolean,
       suites: Boolean,
-      familyRooms: Boolean,
-      non_smokingRooms: Boolean
+      family_rooms: Boolean,
+      nonsmoking_rooms: Boolean
     },
     images: Array,
-    hotelClass: Number,
-    languagesSpoken: Array,
-    hotelStyle: Array,
-    hotelWebsite: String
+    hotel_class: Number,
+    languages_spoken: Array,
+    hotel_style: Array,
+    hotel_website: String
   }
 })
 
