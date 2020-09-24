@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/quacklemore/AboutService#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "mongodb": "^3.6.2",
@@ -25,5 +26,13 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   }
 }
