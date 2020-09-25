@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/about', { useNewUrlParser: true });
+const faker = require('faker');
+const sampleData = require('../sampleData.js');
+
+const db = mongoose.connect('mongodb://localhost/about', { useNewUrlParser: true });
 
 let hotelSchema = new mongoose.Schema({
-    _id: Number,
     hotel_name: String,
     description: String,
     number_of_reviews: Number,
@@ -58,5 +60,22 @@ let save = (hotel) => {
     }
   });
 }
+
+let fakeHotels = () => {
+}
+fakeHotels()
+
+const seedDatabase = function () {
+  // console.log(sampleData)
+  Hotels.create(sampleData, (err) => {
+    if (err) {
+      return err;
+    } else {
+      return 'success';
+    }
+  })
+};
+
+seedDatabase()
 
 module.exports.save = save;
