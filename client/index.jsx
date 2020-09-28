@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Amenities from './components/Amenities.jsx';
+import RoomFeatures from './components/RoomFeatures.jsx';
 import sampleData from '../sampleData.js';
 
 class AboutApp extends React.Component {
@@ -32,6 +33,8 @@ class AboutApp extends React.Component {
       <div>
         <h2 className="property-amenities">Property amenities</h2>
         <Amenities hotel={this.state.hotel}/>
+        <h2 className="room-features">Room features</h2>
+        <RoomFeatures hotel={this.state.hotel}/>
       </div>
     </div>
     )
