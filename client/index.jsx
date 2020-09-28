@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Amenities from './components/Amenities.jsx';
 import RoomFeatures from './components/RoomFeatures.jsx';
+import Ratings from './components/Ratings.jsx';
 import sampleData from '../sampleData.js';
 
 class AboutApp extends React.Component {
@@ -31,6 +32,8 @@ class AboutApp extends React.Component {
       <div className="about-container">
         <h1>About</h1>
       <div>
+        <h2 className="ratings">Ratings</h2>
+        <Ratings hotel={this.state.hotel}/>
         <h2 className="property-amenities">Property amenities</h2>
         <Amenities hotel={this.state.hotel}/>
         <h2 className="room-features">Room features</h2>
