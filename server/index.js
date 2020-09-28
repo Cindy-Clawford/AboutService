@@ -8,10 +8,14 @@ const port = 4001;
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
-app.get('/hotel', (req, res) => {
+app.get('/api/hotel', (req, res) => {
   Hotels.findOne()
     .exec((err, result) => {
-      res.send(result.hotel_name)
+      if (err) {
+        throw err;
+      }
+      console.log(result)
+      res.send(result)
     })
 })
 
