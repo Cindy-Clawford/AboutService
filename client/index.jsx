@@ -7,6 +7,7 @@ import Ratings from './components/Ratings.jsx';
 import sampleData from '../sampleData.js';
 import RoomTypes from './components/RoomTypes.jsx'
 import Description from './components/Description.jsx';
+import OtherHotelInfo from './components/OtherHotelInfo.jsx';
 import Images from './components/Images.jsx';
 
 class AboutApp extends React.Component {
@@ -45,6 +46,7 @@ class AboutApp extends React.Component {
         <RoomFeatures hotel={this.state.hotel}/>
         <h2 className="room-types">Room types</h2>
         <RoomTypes hotel={this.state.hotel}/>
+        <OtherHotelInfo hotel={this.state.hotel}/>
       </div>
     </div>
     )
