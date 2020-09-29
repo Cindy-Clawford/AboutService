@@ -20,9 +20,11 @@ class AboutApp extends React.Component {
   }
 
   componentDidMount(){
+    var hotelNumber = Math.floor(Math.random() * Math.floor(100));
+    console.log(hotelNumber)
     $.ajax({
       type: 'GET',
-      url: '/api/hotel',
+      url: `/api/hotel/hotel ${hotelNumber}`,
       success: (result) => {
         this.setState({
           hotel: result

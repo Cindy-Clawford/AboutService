@@ -8,8 +8,9 @@ const port = 4001;
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
-app.get('/api/hotel', (req, res) => {
-  Hotels.findOne()
+app.get('/api/hotel/:hotelId', (req, res) => {
+  console.log(req.params.hotelId)
+  Hotels.findOne({hotel_name: req.params.hotelId})
     .exec((err, result) => {
       if (err) {
         throw err;

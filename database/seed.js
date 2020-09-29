@@ -5,12 +5,13 @@ const Hotels = require('./Hotels.js');
 let fakeHotels = () => {
   var sampleHotels = []
   for (var i = 0; i < 100; i++) {
-    sampleHotels.push({
-      hotel_name: faker.company.companyName(),
+    var oneHotel = {
+      hotel_name: `hotel ${i}`,
       description: faker.lorem.paragraphs(3, '\n'),
       overall_rating: faker.random.number({
-        min: 1,
-        max: 5
+        min: 1.0,
+        max: 5.0,
+        precision: 0.1
       }),
       number_of_reviews: faker.random.number({
         min: 1,
@@ -22,19 +23,23 @@ let fakeHotels = () => {
       }),
       location_rating: faker.random.number({
         min: 1,
-        max: 5
+        max: 5,
+        precision: 0.1
       }),
       cleanliness_rating: faker.random.number({
         min: 1,
-        max: 5
+        max: 5,
+        precision: 0.1
       }),
       service_rating: faker.random.number({
         min: 1,
-        max: 5
+        max: 5,
+        precision: 0.1
       }),
       value_rating: faker.random.number({
         min: 1,
-        max: 5
+        max: 5,
+        precision: 0.1
       }),
       property_amenities: {
         valet_parking: faker.random.boolean(),
@@ -64,7 +69,6 @@ let fakeHotels = () => {
         family_rooms: faker.random.boolean(),
         nonsmoking_rooms: faker.random.boolean()
       },
-      images: [faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl(), faker.image.imageUrl()],
       hotel_class: faker.random.number({
         min: 1,
         max: 5
@@ -72,8 +76,20 @@ let fakeHotels = () => {
       languages_spoken: [faker.lorem.word(), faker.lorem.word()],
       hotel_style: [faker.lorem.word(), faker.lorem.word()],
       hotel_website: faker.internet.url()
-    })
+    }
+
+    oneHotel.images = [];
+    for(var j = 0; j < 8; j++) {
+      var randomPhoto = faker.random.number({
+        min: 1,
+        max: 50
+      })
+      oneHotel.images.push(`https://tripadcobaabout.s3.us-east-2.amazonaws.com/image${randomPhoto}.jpg`)
+    }
+
+    sampleHotels.push(oneHotel);
   }
+
 
   return sampleHotels;
 }
