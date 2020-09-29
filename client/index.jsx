@@ -6,6 +6,7 @@ import RoomFeatures from './components/RoomFeatures.jsx';
 import Ratings from './components/Ratings.jsx';
 import sampleData from '../sampleData.js';
 import Description from './components/Description.jsx';
+import OtherHotelInfo from './components/OtherHotelInfo.jsx';
 
 class AboutApp extends React.Component {
   constructor() {
@@ -40,6 +41,7 @@ class AboutApp extends React.Component {
         <Amenities hotel={this.state.hotel}/>
         <h2 className="room-features">Room features</h2>
         <RoomFeatures hotel={this.state.hotel}/>
+        <OtherHotelInfo hotel={this.state.hotel}/>
       </div>
     </div>
     )
