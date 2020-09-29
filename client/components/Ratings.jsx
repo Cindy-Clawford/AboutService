@@ -20,14 +20,14 @@ const Ratings = (props) => {
 
   return (
     <div>
-    <h1 className="overall_rating">{props.hotel.overall_rating}</h1>
-    <h2 className="rating_guide">{ratingGuide}</h2>
-    <h3 className="number_of_reviews">{reviewAmount} reviews</h3>
-    <h3 className="rank">#{props.hotel.rank} of 100 hotels in Cancun</h3>
-    <h3 className="location_rating">{props.hotel.location_rating} Location</h3>
-    <h3 className="cleanliness_rating">{props.hotel.cleanliness_rating} Cleanliness</h3>
-    <h3 className="service_rating">{props.hotel.service_rating} Service </h3>
-    <h3 className="value_rating">{props.hotel.value_rating} Value</h3>
+      <h1 className="overall_rating">{props.hotel.overall_rating}</h1>
+      <h2 className="rating_guide">{ratingGuide}</h2>
+      <h3 className="number_of_reviews">{reviewAmount} reviews</h3>
+      <h3 className="rank">#{props.hotel.rank} of 100 hotels in Cancun</h3>
+      <h3 className="location_rating">{props.hotel.location_rating} Location</h3>
+      <h3 className="cleanliness_rating">{props.hotel.cleanliness_rating} Cleanliness</h3>
+      <h3 className="service_rating">{props.hotel.service_rating} Service </h3>
+      <h3 className="value_rating">{props.hotel.value_rating} Value</h3>
     </div>
   )
 }
