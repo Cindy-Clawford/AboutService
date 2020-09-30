@@ -9,7 +9,54 @@ import RoomTypes from './components/RoomTypes.jsx'
 import Description from './components/Description.jsx';
 import OtherHotelInfo from './components/OtherHotelInfo.jsx';
 import Images from './components/Images.jsx';
+import styled from 'styled-components';
 
+//Styling
+
+const AboutContainer = styled.div`
+  display: grid;
+  grid-template-columns: 400px 400px;
+  grid-template-rows: 40px 300px 200px 200px 200px;
+  grid-template-areas:
+  "title title"
+  "ratings amenities"
+  "description features"
+  "images room_types"
+  "images otherInformation";
+  column-gap: 40px;
+  row-gap: 10px;
+
+`
+const TitleSection = styled.h1`
+  grid-area: title;
+  font-size: 20px;
+`
+const ComponentTitle = styled.h2`
+  font-size: 15px;
+`
+const RatingsSection = styled.div`
+  grid-area: ratings;
+`
+const DescriptionSection = styled.div`
+  grid-area: description;
+`
+const ImagesSection = styled.div`
+  grid-area: images;
+`
+const AmenitiesSection = styled.div`
+  grid-area: amenities;
+`
+const FeaturesSection = styled.div`
+  grid-area: features;
+`
+const RoomTypesSection = styled.div`
+  grid-area: room_types;
+`
+const OtherInformationSection = styled.div`
+  grid-area: otherInformation;
+`
+
+//App
 class AboutApp extends React.Component {
   constructor() {
     super ();
@@ -35,22 +82,33 @@ class AboutApp extends React.Component {
 
   render() {
     return (
-      <div className="about-container">
-        <h1>About</h1>
-      <div>
-        <h2 className="ratings">Ratings</h2>
-        <Ratings hotel={this.state.hotel}/>
-        <Description hotel={this.state.hotel}/>
-        <Images hotel={this.state.hotel} />
-        <h2 className="property-amenities">Property amenities</h2>
-        <Amenities hotel={this.state.hotel}/>
-        <h2 className="room-features">Room features</h2>
-        <RoomFeatures hotel={this.state.hotel}/>
-        <h2 className="room-types">Room types</h2>
-        <RoomTypes hotel={this.state.hotel}/>
-        <OtherHotelInfo hotel={this.state.hotel}/>
-      </div>
-    </div>
+      <AboutContainer>
+        <TitleSection>About</TitleSection>
+        <RatingsSection>
+          <Ratings hotel={this.state.hotel}/>
+        </RatingsSection>
+        <DescriptionSection>
+          <Description hotel={this.state.hotel}/>
+        </DescriptionSection>
+        <ImagesSection>
+          <Images hotel={this.state.hotel} />
+        </ImagesSection>
+        <AmenitiesSection>
+        {/* <ComponentTitle>Property amenities</ComponentTitle> */}
+          <Amenities hotel={this.state.hotel}/>
+        </AmenitiesSection>
+        {/* <ComponentTitle>Room features</ComponentTitle> */}
+        <FeaturesSection>
+          <RoomFeatures hotel={this.state.hotel}/>
+        </FeaturesSection>
+        {/* <ComponentTitle>Room types</ComponentTitle> */}
+        <RoomTypesSection>
+          <RoomTypes hotel={this.state.hotel}/>
+        </RoomTypesSection>
+        <OtherInformationSection>
+          <OtherHotelInfo hotel={this.state.hotel}/>
+        </OtherInformationSection>
+    </AboutContainer>
     )
   }
 }
