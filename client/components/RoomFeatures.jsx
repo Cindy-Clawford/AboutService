@@ -24,7 +24,10 @@ const RoomFeatures = (props) => {
 
   return (
     <div>
-      {features.map((feature, index) => <div key={index}><img src={featuresIcons[feature]} width="20" height="20"/>{feature}</div>)}
+      <h3>Room features</h3>
+      <ul style={{columns: 2, listStyleType: "none"}}>
+      {features.map((feature, index) => <li key={index}><img src={featuresIcons[feature]} width="20" height="20"/>{feature}</li>)}
+      </ul>
     </div>
   )
 }
