@@ -26,7 +26,7 @@ const RoomFeatures = (props) => {
     <div>
       <h3>Room features</h3>
       <ul style={{columns: 2, listStyleType: "none"}}>
-      {features.map((feature, index) => <li key={index}><img src={featuresIcons[feature]} width="20" height="20"/>{feature}</li>)}
+      {features.map((feature, index) => <li key={index} style={{listStyleImage: `url(${featuresIcons[feature]})`}}>{feature}</li>)}
       </ul>
     </div>
   )

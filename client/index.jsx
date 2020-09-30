@@ -14,6 +14,13 @@ import styled from 'styled-components';
 //Styling
 
 const AboutContainer = styled.div`
+  margin: auto;
+  padding: 15px;
+  border: 2px solid #D3D3D3;
+  width: 850px;
+  height: 1100px;
+  align-items: center;
+  justify-content: center;
   display: grid;
   grid-template-columns: 400px 400px;
   grid-template-rows: 40px 300px 200px 200px 200px;
@@ -25,17 +32,18 @@ const AboutContainer = styled.div`
   "images otherInformation";
   column-gap: 40px;
   row-gap: 10px;
-
+  font-family: "arial";
 `
-const TitleSection = styled.h1`
+const TitleSection = styled.h2`
   grid-area: title;
-  font-size: 20px;
-`
-const ComponentTitle = styled.h2`
-  font-size: 15px;
+  font-size: 30px;
+  padding: 10px;
+  border-bottom: 2px solid #D3D3D3;
 `
 const RatingsSection = styled.div`
   grid-area: ratings;
+  padding: 10px;
+  border-bottom: 2px solid #D3D3D3;
 `
 const DescriptionSection = styled.div`
   grid-area: description;
@@ -94,14 +102,11 @@ class AboutApp extends React.Component {
           <Images hotel={this.state.hotel} />
         </ImagesSection>
         <AmenitiesSection>
-        {/* <ComponentTitle>Property amenities</ComponentTitle> */}
           <Amenities hotel={this.state.hotel}/>
         </AmenitiesSection>
-        {/* <ComponentTitle>Room features</ComponentTitle> */}
         <FeaturesSection>
           <RoomFeatures hotel={this.state.hotel}/>
         </FeaturesSection>
-        {/* <ComponentTitle>Room types</ComponentTitle> */}
         <RoomTypesSection>
           <RoomTypes hotel={this.state.hotel}/>
         </RoomTypesSection>

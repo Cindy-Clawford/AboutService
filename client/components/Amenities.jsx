@@ -30,7 +30,7 @@ const Amenities = (props) => {
     <div>
       <h3>Property amenities</h3>
       <ul style={{columns: 2, listStyleType: "none"}}>
-      {amenities.map((amenity, index) => <li key={index}><img src={amenitiesIcons[amenity]} width="20" height="20"/>{amenity}</li>)}
+      {amenities.map((amenity, index) => <li key={index} style={{listStyleImage: `url(${amenitiesIcons[amenity]})`}}>{amenity}</li>)}
       </ul>
     </div>
   )

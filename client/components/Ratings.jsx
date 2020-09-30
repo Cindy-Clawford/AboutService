@@ -6,12 +6,11 @@ import styled from 'styled-components';
 
 const RatingCircle = styled.div`
   margin-right: 4px;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   border-radius: 100%;
-  border: solid 2px green;
+  border: solid 2px #00B48B;
   display: inline-block;
-  background: linear-gradient(90deg, green 75%, white 25%);
 `
 
 const Ratings = (props) => {
@@ -65,17 +64,19 @@ const Ratings = (props) => {
           <RatingCircle key={index} style={{background: `white`}} ></RatingCircle>)
       }
       return (
-      <RatingCircle key={index} style={{background: `linear-gradient(90deg, green ${greenCircle}%, white ${whiteCircle}%)`}} ></RatingCircle>)
+      <RatingCircle key={index} style={{background: `linear-gradient(90deg, #00B48B ${greenCircle}%, white ${whiteCircle}%)`}} ></RatingCircle>)
     })
   }
 
   return (
     <div>
-      <h1 className="overall_rating">{props.hotel.overall_rating}{console.log(overallCircles)}</h1>
-      <div className="rating_guide">{ratingGuide}</div>
-      {renderCircles(overallCircles)}
-      <div className="number_of_reviews">{reviewAmount} reviews</div>
-      <div className="rank">#{props.hotel.rank} of 100 hotels in Cancun</div>
+      <div style={{columns: 2}}>
+        <div className="overall_rating" style={{"font": "50px bold", "padding": "3px"}}>{props.hotel.overall_rating}{console.log(overallCircles)}</div>
+        <div className="rating_guide">{ratingGuide}</div>
+        <div className="number_of_reviews" style={{"fontSize": "13px", "color": "#808080", "textAlign": "left"}}>{renderCircles(overallCircles)}{reviewAmount} reviews</div>
+      </div>
+
+      <div className="rank" style={{"fontSize": "13px", "color": "#808080", "padding": "10px 2px"}}>#{props.hotel.rank} of 100 hotels in Cancun</div>
       <div className="location_rating">
       {renderCircles(locationCircles)} Location</div>
       <div className="cleanliness_rating">
