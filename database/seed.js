@@ -1,12 +1,12 @@
 const faker = require('faker');
 const db = require('./index.js');
-const Hotels = require('./Hotels.js');
+const databaseMethods = require('./Hotels');
 
 let fakeHotels = () => {
   var sampleHotels = []
   for (var i = 0; i < 100; i++) {
     var oneHotel = {
-      hotel_name: `hotel ${i}`,
+      hotel_name: `hotel${i}`,
       description: faker.lorem.paragraphs(3, '\n'),
       overall_rating: faker.random.number({
         min: 1.0,
@@ -95,8 +95,8 @@ let fakeHotels = () => {
 }
 
 
-const seedDatabase = function () {
-  Hotels.create(fakeHotels(), (err) => {
+const seedDatabase = function (hotels) {
+  databaseMethods.Hotels.create(hotels, (err) => {
     if (err) {
       return err;
     } else {
@@ -105,4 +105,6 @@ const seedDatabase = function () {
   })
 };
 
-seedDatabase()
+seedDatabase(fakeHotels())
+
+module.exports = seedDatabase;

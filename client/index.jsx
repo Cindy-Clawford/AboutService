@@ -87,7 +87,7 @@ class AboutApp extends React.Component {
     console.log(hotelNumber)
     $.ajax({
       type: 'GET',
-      url: `/api/hotel/hotel ${hotelNumber}`,
+      url: `/api/hotel/hotel${hotelNumber}`,
       success: (result) => {
         this.setState({
           hotel: result
