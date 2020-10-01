@@ -21,7 +21,9 @@ const RoomTypes = (props) => {
   return (
     <div>
       <h3>Room types</h3>
-      {types.map((type, index) => <div key={index}><img src={roomTypesIcons[type]} width="20" height="20"/>{type}</div>)}
+      <ul style={{columns: 2, listStyleType: "none", padding: "0px"}}>
+        {types.map((type, index) => <li key={index} style={{padding: "7px"}}><img src={roomTypesIcons[type]} height="20px" width="20px"></img>  {type}</li>)}
+      </ul>
     </div>
   )
 }

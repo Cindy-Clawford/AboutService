@@ -14,9 +14,15 @@ import styled from 'styled-components';
 //Styling
 
 const AboutContainer = styled.div`
+  margin: 15px;
+  padding: 15px;
+  border: 2px solid #D3D3D3;
+  width: 900px;
+  height: 1200px;
+  align-items: start;
   display: grid;
-  grid-template-columns: 400px 400px;
-  grid-template-rows: 40px 300px 200px 200px 200px;
+  grid-template-columns: 425px 425px;
+  grid-template-rows: 40px 200px 300px 200px 200px;
   grid-template-areas:
   "title title"
   "ratings amenities"
@@ -25,34 +31,44 @@ const AboutContainer = styled.div`
   "images otherInformation";
   column-gap: 40px;
   row-gap: 10px;
-
+  font-family: "arial";
 `
-const TitleSection = styled.h1`
+const TitleSection = styled.h2`
   grid-area: title;
-  font-size: 20px;
-`
-const ComponentTitle = styled.h2`
-  font-size: 15px;
+  font-size: 30px;
+  padding: 10px;
+  margin: 10px;
+  border-bottom: 2px solid #D3D3D3;
 `
 const RatingsSection = styled.div`
   grid-area: ratings;
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  border-bottom: 2px solid #D3D3D3;
 `
 const DescriptionSection = styled.div`
+  margin: 10px;
   grid-area: description;
 `
 const ImagesSection = styled.div`
+  margin: 10px;
   grid-area: images;
 `
 const AmenitiesSection = styled.div`
+  margin: 10px;
   grid-area: amenities;
 `
 const FeaturesSection = styled.div`
+  margin: 10px;
   grid-area: features;
 `
 const RoomTypesSection = styled.div`
+  margin: 10px;
   grid-area: room_types;
 `
 const OtherInformationSection = styled.div`
+  margin: 10px;
   grid-area: otherInformation;
 `
 
@@ -62,7 +78,7 @@ class AboutApp extends React.Component {
     super ();
 
     this.state = {
-      hotel: sampleData[0]
+      hotel: []
     }
   }
 
@@ -81,6 +97,11 @@ class AboutApp extends React.Component {
   }
 
   render() {
+    if (Array.isArray(this.state.hotel)) {
+      return(
+        <div></div>
+      )
+    }
     return (
       <AboutContainer>
         <TitleSection>About</TitleSection>
@@ -94,14 +115,11 @@ class AboutApp extends React.Component {
           <Images hotel={this.state.hotel} />
         </ImagesSection>
         <AmenitiesSection>
-        {/* <ComponentTitle>Property amenities</ComponentTitle> */}
           <Amenities hotel={this.state.hotel}/>
         </AmenitiesSection>
-        {/* <ComponentTitle>Room features</ComponentTitle> */}
         <FeaturesSection>
           <RoomFeatures hotel={this.state.hotel}/>
         </FeaturesSection>
-        {/* <ComponentTitle>Room types</ComponentTitle> */}
         <RoomTypesSection>
           <RoomTypes hotel={this.state.hotel}/>
         </RoomTypesSection>
@@ -112,5 +130,6 @@ class AboutApp extends React.Component {
     )
   }
 }
+
 
 ReactDOM.render(<AboutApp />, document.getElementById('aboutApp'))

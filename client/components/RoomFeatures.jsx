@@ -25,8 +25,8 @@ const RoomFeatures = (props) => {
   return (
     <div>
       <h3>Room features</h3>
-      <ul style={{columns: 2, listStyleType: "none"}}>
-      {features.map((feature, index) => <li key={index}><img src={featuresIcons[feature]} width="20" height="20"/>{feature}</li>)}
+      <ul style={{columns: 2, listStyleType: "none", padding: "0px"}}>
+      {features.map((feature, index) => <li key={index} style={{padding: "7px"}}><img src={featuresIcons[feature]} height="20px" width="20px"></img>  {feature}</li>)}
       </ul>
     </div>
   )
