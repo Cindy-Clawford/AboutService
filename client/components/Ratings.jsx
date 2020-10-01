@@ -70,13 +70,15 @@ const Ratings = (props) => {
 
   return (
     <div>
-      <div style={{columns: 2}}>
-        <div className="overall_rating" style={{"font": "50px bold", "padding": "3px"}}>{props.hotel.overall_rating}{console.log(overallCircles)}</div>
-        <div className="rating_guide">{ratingGuide}</div>
-        <div className="number_of_reviews" style={{"fontSize": "13px", "color": "#808080", "textAlign": "left"}}>{renderCircles(overallCircles)}{reviewAmount} reviews</div>
+      <div>
+        <div className="overall_rating" style={{float: "left", "font": "50px bold", "padding": "3px"}}>{props.hotel.overall_rating}</div>
+        <div style={{marginTop: "15px", float: "left"}}>
+          <div className="rating_guide">{ratingGuide}</div>
+          <div className="number_of_reviews" style={{"fontSize": "13px", "color": "#808080", "textAlign": "left"}}>{renderCircles(overallCircles)}{reviewAmount} reviews</div>
+        </div>
       </div>
 
-      <div className="rank" style={{"fontSize": "13px", "color": "#808080", "padding": "10px 2px"}}>#{props.hotel.rank} of 100 hotels in Cancun</div>
+      <div className="rank" style={{clear: "both", "fontSize": "13px", "color": "#808080", "padding": "10px 2px"}}>#{props.hotel.rank} of 100 hotels in Cancun</div>
       <div className="location_rating">
       {renderCircles(locationCircles)} Location</div>
       <div className="cleanliness_rating">
