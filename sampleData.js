@@ -1,6 +1,6 @@
 var sampleData = [
   {
-    hotel_name: 'Fiesta Americana Condesa Cancun All Inclusive',
+    hotel_name: 'Hotel 1',
     description: `The all-inclusive resort features a concierge and room service. Plus, guests can enjoy a pool and free breakfast, which have made this a popular choice among travelers visiting Cancun. For guests with a vehicle, parking is available. \n Avenida Kukulkan (1.6 mi), located nearby, makes Fiesta Americana Condesa Cancun All Inclusive Hotel a great place to stay for those interested in visiting this popular Cancun landmark. \n While visiting Cancun, you may want to try some shrimp at one of the nearby restaurants, such as Lorenzillo's, Harry's CancÃºn, or Puerto Madero. \n  During your visit, be sure to check out popular ancient ruins like El Rey Ruins (Zona Arqueologica El Rey), Yamil Lu'um, and Scorpionâ€™s Temple, which are all a short distance from the all-inclusive resort. \n  Weâ€™re sure youâ€™ll enjoy your stay at Fiesta Americana Condesa Cancun All Inclusive as you experience everything Cancun has to offer.`,
     overall_rating: 4.5,
     number_of_reviews: 12633,
@@ -37,7 +37,7 @@ var sampleData = [
       family_rooms: true,
       nonsmoking_rooms: true
     },
-    images: ['imageUrl', 'imageUrl', 'imageUrl'],
+    images: ['https://tripadcobaabout.s3.us-east-2.amazonaws.com/image1.jpg', 'https://tripadcobaabout.s3.us-east-2.amazonaws.com/image2.jpg', 'https://tripadcobaabout.s3.us-east-2.amazonaws.com/image3.jpg'],
     hotel_class: 4.3,
     languages_spoken: ['English', 'Spanish'],
     hotel_style: ['Value', 'Family'],

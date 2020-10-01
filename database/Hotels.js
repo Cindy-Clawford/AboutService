@@ -58,4 +58,5 @@ let save = (hotel) => {
   });
 }
 
-module.exports = Hotels;
+exports.Hotels = Hotels;
+exports.save = save;
