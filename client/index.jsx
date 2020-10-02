@@ -14,64 +14,35 @@ import styled from 'styled-components';
 //Styling
 
 const AboutContainer = styled.div`
-  margin: 15px;
-  padding: 15px;
+  padding: 24px;
   border: 2px solid #D3D3D3;
   width: 900px;
-  height: 1200px;
-  align-items: start;
-  display: grid;
-  grid-template-columns: 425px 425px;
-  grid-template-rows: 40px 200px 300px 200px 200px;
-  grid-template-areas:
-  "title title"
-  "ratings amenities"
-  "description features"
-  "images room_types"
-  "images otherInformation";
-  column-gap: 40px;
-  row-gap: 10px;
+  height: 100%;
   font-family: "arial";
 `
 const TitleSection = styled.h2`
-  grid-area: title;
-  font-size: 30px;
-  padding: 10px;
-  margin: 10px;
-  border-bottom: 2px solid #D3D3D3;
-`
-const RatingsSection = styled.div`
-  grid-area: ratings;
-  display: flex;
-  padding: 10px;
-  margin: 10px;
-  border-bottom: 2px solid #D3D3D3;
-`
-const DescriptionSection = styled.div`
-  margin: 10px;
-  grid-area: description;
-`
-const ImagesSection = styled.div`
-  margin: 10px;
-  grid-area: images;
-`
-const AmenitiesSection = styled.div`
-  margin: 10px;
-  grid-area: amenities;
-`
-const FeaturesSection = styled.div`
-  margin: 10px;
-  grid-area: features;
-`
-const RoomTypesSection = styled.div`
-  margin: 10px;
-  grid-area: room_types;
-`
-const OtherInformationSection = styled.div`
-  margin: 10px;
-  grid-area: otherInformation;
+    font-size: 28px;
+    padding: 18px;
+    margin: 0;
+    border-bottom: solid 2px #D3D3D3;
 `
 
+const ContentSection = styled.div`
+    align-items: start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+`
+
+const LeftSection = styled.div`
+  display: grid;
+  grid-auto-rows: auto;
+  padding: 12px;
+`
+const RightSeciton = styled.div`
+  display: grid;
+  padding: 12px;
+`
 //App
 class AboutApp extends React.Component {
   constructor() {
@@ -120,27 +91,28 @@ class AboutApp extends React.Component {
     return (
       <AboutContainer>
         <TitleSection>About</TitleSection>
-        <RatingsSection>
-          <Ratings hotel={this.state.hotel}/>
-        </RatingsSection>
-        <DescriptionSection>
-          <Description description={this.state.hotel.description} />
-        </DescriptionSection>
-        <ImagesSection>
+        <ContentSection>
+          <LeftSection>
+            <Ratings hotel={this.state.hotel}/>
+            <Description description={this.state.hotel.description} />
           <Images hotel={this.state.hotel} />
-        </ImagesSection>
-        <AmenitiesSection>
+        </LeftSection>
+        <div>
+        {/* </ImagesSection>
+        <AmenitiesSection> */}
           <Amenities hotel={this.state.hotel}/>
-        </AmenitiesSection>
-        <FeaturesSection>
+        {/* </AmenitiesSection>
+        <FeaturesSection> */}
           <RoomFeatures hotel={this.state.hotel}/>
-        </FeaturesSection>
-        <RoomTypesSection>
+        {/* </FeaturesSection>
+        <RoomTypesSection> */}
           <RoomTypes hotel={this.state.hotel}/>
-        </RoomTypesSection>
-        <OtherInformationSection>
+        {/* </RoomTypesSection>
+        <OtherInformationSection> */}
           <OtherHotelInfo hotel={this.state.hotel}/>
-        </OtherInformationSection>
+        {/* </OtherInformationSection> */}
+        </div>
+        </ContentSection>
     </AboutContainer>
     )
   }

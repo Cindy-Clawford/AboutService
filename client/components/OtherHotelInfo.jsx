@@ -34,10 +34,10 @@ const OtherHotelInfo = (props) => {
 
   return (
     <div>
-      <h3 >Good to know</h3>
+      <h4 style={{margin: "22px 0 18px"}}>Good to know</h4>
       <div style={{display: "grid", gridTemplateColumns: "50% 50%"}}>
         <div>
-          <div className="hotel-class" style={{padding: "5px"}}>HOTEL CLASS </div>
+          <div className="hotel-class" style={{padding: "5px 0", fontSize: "14px"}}>HOTEL CLASS </div>
             {classStars.map((star, index) => {
               if (star === 1) {
                 return (
@@ -51,17 +51,17 @@ const OtherHotelInfo = (props) => {
             })}
           </div>
         <div>
-          <div className="languages-spoken" style={{padding: "5px"}}>LANGUAGES SPOKEN </div>
-          <div style={{padding: "5px"}}> {props.hotel.languages_spoken} </div>
+          <div className="languages-spoken" style={{padding: "5px", fontSize: "14px"}}>LANGUAGES SPOKEN </div>
+          <div style={{padding: "5px", fontSize: "14px"}}> {props.hotel.languages_spoken} </div>
         </div>
       </div>
-      <div style={{borderBottom: "grey solid 2px", padding: "5px"}}>
-        <div className="hotel-style">HOTEL STYLE </div>
-        <div>{props.hotel.hotel_style}</div>
+      <div style={{borderBottom: "#D3D3D3 solid 2px", padding: "5px 0 10px", margin: "0 0 12px"}}>
+        <div className="hotel-style" style={{padding: "5px 0", fontSize: "14px"}}>HOTEL STYLE </div>
+        <div style={{padding: "5px 0", fontSize: "14px"}}>{props.hotel.hotel_style}</div>
       </div>
-      <div style={{padding: "5px"}}>Hotel Links</div>
-      <a className="website-link" href={props.hotel.hotel_website} style={{padding: "5px", color: "black"}}>
-      <img src="https://img.icons8.com/windows/32/000000/internet.png" width="20px" height="20px" /> Visit hotel website</a>
+      <div style={{padding: "5px 0"}}>Hotel Links</div>
+      <a className="website-link" href={props.hotel.hotel_website} style={{padding: "5px 0", color: "black", textDecoration: "none"}}>
+      <img src="https://img.icons8.com/fluent-systems-regular/24/000000/internet.png" width="15px" height="15px" style={{verticalAlign: "middle"}} /> Visit hotel website</a>
     </div>
   )
 }
