@@ -42,32 +42,32 @@ let fakeHotels = () => {
         precision: 0.1
       }),
       property_amenities: {
-        valet_parking: faker.random.boolean(),
-        pool: faker.random.boolean(),
-        free_breakfast: faker.random.boolean(),
-        beach: faker.random.boolean(),
-        babsitting: faker.random.boolean(),
-        free_internet: faker.random.boolean(),
-        fitness_center: faker.random.boolean(),
-        entertainment: faker.random.boolean(),
-        business_center: faker.random.boolean(),
-        spa: faker.random.boolean()
+        "Valet parking": faker.random.boolean(),
+        "Pool": faker.random.boolean(),
+        "Free breakfast": faker.random.boolean(),
+        "Beach": faker.random.boolean(),
+        "Babysitting": faker.random.boolean(),
+        "Free internet": faker.random.boolean(),
+        "Fitness center": faker.random.boolean(),
+        "Entertainment": faker.random.boolean(),
+        "Business center": faker.random.boolean(),
+        "Spa": faker.random.boolean()
       },
       room_features: {
-        air_conditioning: faker.random.boolean(),
-        room_service: faker.random.boolean(),
-        flatscreen_TV: faker.random.boolean(),
-        safe: faker.random.boolean(),
-        wake_up_service: faker.random.boolean(),
-        housekeeping: faker.random.boolean(),
-        iron: faker.random.boolean(),
-        balcony: faker.random.boolean()
+        "Air conditioning": faker.random.boolean(),
+        "Room service": faker.random.boolean(),
+        "Flatscreen TV": faker.random.boolean(),
+        "Safe": faker.random.boolean(),
+        "Wake-up service": faker.random.boolean(),
+        "Housekeeping": faker.random.boolean(),
+        "Iron": faker.random.boolean(),
+        "Balcony": faker.random.boolean()
       },
       room_types: {
-        oceanview: faker.random.boolean(),
-        suites: faker.random.boolean(),
-        family_rooms: faker.random.boolean(),
-        nonsmoking_rooms: faker.random.boolean()
+        "Ocean View": faker.random.boolean(),
+        "Suites": faker.random.boolean(),
+        "Family rooms": faker.random.boolean(),
+        "Non-smoking rooms": faker.random.boolean()
       },
       hotel_class: faker.random.number({
         min: 1,

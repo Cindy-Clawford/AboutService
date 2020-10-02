@@ -8,14 +8,14 @@ const FeaturesContainer = styled.div`
 
 const RoomFeatures = (props) => {
   var featuresIcons = {
-    air_conditioning: "https://img.icons8.com/windows/32/000000/snowflake.png",
-    room_service: "https://img.icons8.com/windows/32/000000/room-service.png",
-    flatscreen_TV: "https://img.icons8.com/material-outlined/24/000000/tv-show.png",
-    safe: "https://img.icons8.com/fluent-systems-regular/24/000000/safe-in.png",
-    wake_up_service: "https://img.icons8.com/material-outlined/24/000000/bed.png",
-    housekeeping: "https://img.icons8.com/material-outlined/24/000000/bed.png",
-    iron: "https://img.icons8.com/material-outlined/24/000000/bed.png",
-    balcony: "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Air conditioning": "https://img.icons8.com/windows/32/000000/snowflake.png",
+    "Room service": "https://img.icons8.com/windows/32/000000/room-service.png",
+    "Flatscreen TV": "https://img.icons8.com/material-outlined/24/000000/tv-show.png",
+    "Safe": "https://img.icons8.com/fluent-systems-regular/24/000000/safe-in.png",
+    "Wake-up service": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Housekeeping": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Iron": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Balcony": "https://img.icons8.com/material-outlined/24/000000/bed.png",
   }
   var features = [];
   var roomFeatureValues = Object.values(props.hotel.room_features);

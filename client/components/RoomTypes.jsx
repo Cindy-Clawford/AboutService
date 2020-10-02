@@ -8,10 +8,10 @@ const TypesContainer = styled.div`
 
 const RoomTypes = (props) => {
   var roomTypesIcons = {
-    oceanView: "https://img.icons8.com/material-sharp/24/000000/wave-lines.png",
-    suites: "https://img.icons8.com/material-outlined/24/000000/bed.png",
-    family_rooms: "https://img.icons8.com/material-outlined/24/000000/bed.png",
-    nonsmoking_rooms: "https://img.icons8.com/fluent-systems-regular/24/000000/no-smoking.png",
+    "Ocean View": "https://img.icons8.com/material-sharp/24/000000/wave-lines.png",
+    "Suites": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Family rooms": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Non-smoking rooms": "https://img.icons8.com/fluent-systems-regular/24/000000/no-smoking.png",
   }
   var types = [];
   var roomTypesValues = Object.values(props.hotel.room_types);

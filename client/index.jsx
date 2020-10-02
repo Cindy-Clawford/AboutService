@@ -17,7 +17,7 @@ const AboutContainer = styled.div`
   padding: 24px;
   border: 2px solid #D3D3D3;
   width: 900px;
-  height: 1200px;
+  height: 100%;
   font-family: "arial";
 `
 const TitleSection = styled.h2`
