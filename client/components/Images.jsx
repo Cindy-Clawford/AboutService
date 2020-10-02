@@ -3,15 +3,16 @@ import styled from 'styled-components';
 
 const ImagesContainer = styled.div`
   margin: 5px 0;
+  width: 415px;
 `
 
 const LargeImageContainer = styled.div`
   position: relative;
-  width: 415px;
 `
 const LargeImage = styled.img`
-  width: 100%;
-  height: auto;
+  width: 415px;
+  height: 315px;
+  object-fit: cover;
 `
 const ThumbnailContainer = styled.div`
   display: grid;
@@ -22,10 +23,14 @@ const ThumbnailContainer = styled.div`
 
 const ThumbnailPhoto = styled.img`
   opacity: 0.5;
+  width: 50px;
+  height: 50px;
+  &:hover {
+    opacity: 1;
+  }
 `
 
 const FullViewButton = styled.button`
-  /* display: none; */
   &:hover {
     opacity: 0.7;
     }
@@ -77,24 +82,22 @@ class Images extends React.Component {
     super(props)
 
     this.state = {
-      currentPhotoIndex: 0
+      currentPhotoIndex: 0,
     }
   }
 
 
   changePhoto(type) {
-    if (this.state.currentPhotoIndex === this.props.images.length - 1) {
-      //remove button on right
-      return;
-    }
-    // if (this.state.currentPhotoIndex === 0) {
-    //   //remove button on left
-
-    // }
     this.setState(prevState => {
       return {
       currentPhotoIndex: type === 'next' ? prevState.currentPhotoIndex + 1 : prevState.currentPhotoIndex -1
       }
+    })
+  }
+
+  handleThumbnailClick(photoIndex) {
+    this.setState({
+      currentPhotoIndex: photoIndex
     })
   }
 
@@ -103,14 +106,19 @@ class Images extends React.Component {
       <ImagesContainer>
         <LargeImageContainer>
           <LargeImage src={this.props.images[this.state.currentPhotoIndex]}/>
-          <LeftCarouselButton onClick={this.changePhoto.bind(this, 'previous')}>{String.fromCharCode(10094)}</LeftCarouselButton>
+          <LeftCarouselButton style={{display: this.state.currentPhotoIndex === 0 ? "none" :  "block" }} onClick={this.changePhoto.bind(this, 'previous')}>{String.fromCharCode(10094)}</LeftCarouselButton>
           <FullViewButton>Full View</FullViewButton>
-          <RightCarouselButton onClick={this.changePhoto.bind(this, 'next')}>{String.fromCharCode(10095)}</RightCarouselButton>
+          <RightCarouselButton style={{display: this.state.currentPhotoIndex === this.props.images.length - 1 ? "none" :  "block" }} onClick={this.changePhoto.bind(this, 'next')}>{String.fromCharCode(10095)}</RightCarouselButton>
         </LargeImageContainer>
         <ThumbnailContainer>
           {this.props.images.map((image, index) => {
+            if (image === this.props.images[this.state.currentPhotoIndex]){
+              return (
+              <ThumbnailPhoto onClick={this.handleThumbnailClick.bind(this, index)} key={index} src={image} style={{opacity: 1}}/>
+              )
+            }
             return (
-            <ThumbnailPhoto key={index} src={image} width="50" height="50"/>
+              <ThumbnailPhoto onClick={this.handleThumbnailClick.bind(this, index)} key={index} src={image} />
             )
           })}
         </ThumbnailContainer>
