@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 //Styling
-
 const RatingCircle = styled.div`
   margin-right: 4px;
   width: 10px;

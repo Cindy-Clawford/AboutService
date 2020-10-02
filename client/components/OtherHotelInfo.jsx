@@ -35,24 +35,33 @@ const OtherHotelInfo = (props) => {
   return (
     <div>
       <h3 >Good to know</h3>
-      <h4 className="hotel-class">HOTEL CLASS </h4>
-      {classStars.map((star, index) => {
-        if (star === 1) {
-          return (
-            <RatingStar key={index}>{String.fromCharCode(9733)}</RatingStar>
-          )
-        } else {
-          return (
-            <RatingStar key={index}>{String.fromCharCode(9734)}</RatingStar>
-          )
-        }
-      })}
-      <h4 className="languages-spoken">LANGUAGES SPOKEN </h4>
-      <h5> {props.hotel.languages_spoken} </h5>
-      <h4 className="hotel-style">HOTEL STYLE </h4>
-      <h5>{props.hotel.hotel_style}</h5>
-      <h3>Hotel Links</h3>
-      <h4 className="website-link" link={props.hotel.hotel_website}>Visit hotel website</h4>
+      <div style={{display: "grid", gridTemplateColumns: "50% 50%"}}>
+        <div>
+          <div className="hotel-class" style={{padding: "5px"}}>HOTEL CLASS </div>
+            {classStars.map((star, index) => {
+              if (star === 1) {
+                return (
+                  <RatingStar key={index}>{String.fromCharCode(9733)}</RatingStar>
+                )
+              } else {
+                return (
+                  <RatingStar key={index}>{String.fromCharCode(9734)}</RatingStar>
+                )
+              }
+            })}
+          </div>
+        <div>
+          <div className="languages-spoken" style={{padding: "5px"}}>LANGUAGES SPOKEN </div>
+          <div style={{padding: "5px"}}> {props.hotel.languages_spoken} </div>
+        </div>
+      </div>
+      <div style={{borderBottom: "grey solid 2px", padding: "5px"}}>
+        <div className="hotel-style">HOTEL STYLE </div>
+        <div>{props.hotel.hotel_style}</div>
+      </div>
+      <div style={{padding: "5px"}}>Hotel Links</div>
+      <a className="website-link" href={props.hotel.hotel_website} style={{padding: "5px", color: "black"}}>
+      <img src="https://img.icons8.com/windows/32/000000/internet.png" width="20px" height="20px" /> Visit hotel website</a>
     </div>
   )
 }
