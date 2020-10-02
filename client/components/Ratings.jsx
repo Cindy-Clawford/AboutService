@@ -3,6 +3,22 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 //Styling
+const RatingContainer = styled.div`
+  padding: 10px 0 20px;
+  border-bottom: solid 2px #D3D3D3;
+`
+
+const RatingNumber = styled.span`
+  font-weight: bolder;
+  font-size: 50px;
+`
+
+const OverallSection = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding: 3px;
+`
+
 const RatingCircle = styled.div`
   margin-right: 4px;
   width: 10px;
@@ -68,14 +84,14 @@ const Ratings = (props) => {
   }
 
   return (
-    <div>
-      <div>
-        <div className="overall_rating" style={{float: "left", "font": "50px bold", "padding": "3px"}}>{props.hotel.overall_rating}</div>
-        <div style={{marginTop: "15px", float: "left"}}>
-          <div className="rating_guide">{ratingGuide}</div>
+    <RatingContainer>
+      <OverallSection>
+        <RatingNumber>{props.hotel.overall_rating}</RatingNumber>
+        <div>
+          <div className="rating_guide" style={{padding: "0.7em 0 0.1em", fontWeight: "bold"}}>{ratingGuide}</div>
           <div className="number_of_reviews" style={{"fontSize": "13px", "color": "#808080", "textAlign": "left"}}>{renderCircles(overallCircles)}{reviewAmount} reviews</div>
         </div>
-      </div>
+      </OverallSection>
 
       <div className="rank" style={{clear: "both", "fontSize": "13px", "color": "#808080", "padding": "10px 2px"}}>#{props.hotel.rank} of 100 hotels in Cancun</div>
       <div className="location_rating">
@@ -86,7 +102,7 @@ const Ratings = (props) => {
       {renderCircles(serviceCircles)} Service </div>
       <div className="value_rating">
       {renderCircles(valueCircles)}  Value</div>
-    </div>
+    </RatingContainer>
   )
 }
 

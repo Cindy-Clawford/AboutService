@@ -1,5 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
+
+//styling
+
+const DescriptionContainer = styled.div`
+  padding: 24px 0;
+`
 
 class Description extends React.Component {
   constructor (props) {
@@ -25,21 +32,21 @@ class Description extends React.Component {
     let paragraphs = this.props.description.split("\n");
     if (this.state.readMore){
       return (
-        <div>
+        <DescriptionContainer>
           <div>
           {paragraphs[0]}
             <button style={{backgroundColor: "white", border: "none", borderBottom: "dotted grey 1px", outline: "none"}} onClick={this.readMoreToggle}>Read More {String.fromCharCode(9662)}</button>
           </div>
-        </div>
+        </DescriptionContainer>
       )
     } else {
       return (
-        <div>
+        <DescriptionContainer>
           <div>
           {paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
             <button style={{backgroundColor: "white", border: "none", borderBottom: "dotted grey 1px", outline: "none"}} onClick={this.readLessToggle}>Read Less {String.fromCharCode(9652)}</button>
           </div>
-        </div>
+        </DescriptionContainer>
       )
     }
   }

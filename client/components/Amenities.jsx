@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
+
+const AmenitiesContainer = styled.div`
+  padding: 12px 0;
+`
 
 const Amenities = (props) => {
   var amenitiesIcons = {
@@ -24,15 +29,13 @@ const Amenities = (props) => {
     }
   };
 
-
-
   return (
-    <div>
+    <AmenitiesContainer>
       <h3>Property amenities</h3>
       <ul style={{columns: 2, listStyleType: "none", padding: "0px"}}>
         {amenities.map((amenity, index) => <li key={index} style={{padding: "7px"}}><img src={amenitiesIcons[amenity]} height="20px" width="20px"></img>  {amenity}</li>)}
       </ul>
-    </div>
+    </AmenitiesContainer>
   )
 }
 
