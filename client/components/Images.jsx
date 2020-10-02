@@ -44,6 +44,7 @@ const FullViewButton = styled.button`
   padding: 24px 24px;
   border: none;
   border-radius: 5px;
+  outline: none;
 `
 
 const LeftCarouselButton = styled.button`
@@ -60,6 +61,7 @@ const LeftCarouselButton = styled.button`
   padding: 24px 24px;
   border: none;
   border-radius: 5px;
+  outline: none;
 `
 
 const RightCarouselButton = styled.button`
@@ -76,6 +78,7 @@ const RightCarouselButton = styled.button`
   padding: 24px 24px;
   border: none;
   border-radius: 5px;
+  outline: none;
 `
 class Images extends React.Component {
   constructor (props) {

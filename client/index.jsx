@@ -39,7 +39,7 @@ const LeftSection = styled.div`
   grid-auto-rows: auto;
   padding: 12px;
 `
-const RightSeciton = styled.div`
+const RightSection = styled.div`
   display: grid;
   padding: 12px;
 `
@@ -95,23 +95,14 @@ class AboutApp extends React.Component {
           <LeftSection>
             <Ratings hotel={this.state.hotel}/>
             <Description description={this.state.hotel.description} />
-          <Images hotel={this.state.hotel} />
+          <Images images={this.state.hotel.images} />
         </LeftSection>
-        <div>
-        {/* </ImagesSection>
-        <AmenitiesSection> */}
+        <RightSection>
           <Amenities hotel={this.state.hotel}/>
-        {/* </AmenitiesSection>
-        <FeaturesSection> */}
           <RoomFeatures hotel={this.state.hotel}/>
-        {/* </FeaturesSection>
-        <RoomTypesSection> */}
           <RoomTypes hotel={this.state.hotel}/>
-        {/* </RoomTypesSection>
-        <OtherInformationSection> */}
           <OtherHotelInfo hotel={this.state.hotel}/>
-        {/* </OtherInformationSection> */}
-        </div>
+        </RightSection>
         </ContentSection>
     </AboutContainer>
     )
