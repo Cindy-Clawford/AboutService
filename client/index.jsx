@@ -78,8 +78,11 @@ class AboutApp extends React.Component {
     super ();
 
     this.state = {
-      hotel: []
+      hotel: [],
+      readMore: false
     }
+
+    this.handleReadMore = this.handleReadMore.bind(this);
   }
 
   componentDidMount(){
@@ -96,6 +99,18 @@ class AboutApp extends React.Component {
     })
   }
 
+  handleReadMore(){
+    if (this.state.readMore) {
+      this.setState({
+        readMore: false
+      })
+    } else {
+      this.setState({
+        readMore: true
+      })
+    }
+  }
+
   render() {
     if (Array.isArray(this.state.hotel)) {
       return(
@@ -109,7 +124,7 @@ class AboutApp extends React.Component {
           <Ratings hotel={this.state.hotel}/>
         </RatingsSection>
         <DescriptionSection>
-          <Description hotel={this.state.hotel}/>
+          <Description description={this.state.hotel.description} />
         </DescriptionSection>
         <ImagesSection>
           <Images hotel={this.state.hotel} />

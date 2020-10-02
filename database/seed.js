@@ -1,5 +1,5 @@
 const faker = require('faker');
-const db = require('./index.js');
+const mongoose = require('mongoose');
 const databaseMethods = require('./Hotels');
 
 let fakeHotels = () => {
@@ -73,7 +73,6 @@ let fakeHotels = () => {
         min: 1,
         max: 5
       }),
-      languages_spoken: [faker.lorem.word(), faker.lorem.word()],
       hotel_style: [faker.lorem.word(), faker.lorem.word()],
       hotel_website: faker.internet.url()
     }
@@ -87,6 +86,20 @@ let fakeHotels = () => {
       oneHotel.images.push(`https://tripadcobaabout.s3.us-east-2.amazonaws.com/image${randomPhoto}.jpg`)
     }
 
+    oneHotel.languages_spoken = '';
+    const languageOptions = ['Spanish', 'English', 'French', 'German', 'Portuguese', 'Korean'];
+    const numberOfLanguages = faker.random.number({
+      min: 1,
+      max: languageOptions.length
+    })
+
+    for(var k = 0; k < numberOfLanguages; k++) {
+      if (k === numberOfLanguages - 1) {
+        oneHotel.languages_spoken = `${oneHotel.languages_spoken + languageOptions[k]}`;
+      } else {
+      oneHotel.languages_spoken = `${oneHotel.languages_spoken + languageOptions[k]}, `;
+      }
+    }
     sampleHotels.push(oneHotel);
   }
 
@@ -100,7 +113,7 @@ const seedDatabase = function (hotels) {
     if (err) {
       return err;
     } else {
-      return 'success';
+      mongoose.connection.close();
     }
   })
 };

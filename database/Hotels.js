@@ -41,7 +41,7 @@ const hotelSchema = new mongoose.Schema({
   },
   images: Array,
   hotel_class: Number,
-  languages_spoken: Array,
+  languages_spoken: String,
   hotel_style: Array,
   hotel_website: String
 })
