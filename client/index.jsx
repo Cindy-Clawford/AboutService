@@ -127,7 +127,7 @@ class AboutApp extends React.Component {
           <Description description={this.state.hotel.description} />
         </DescriptionSection>
         <ImagesSection>
-          <Images hotel={this.state.hotel} />
+          <Images images={this.state.hotel.images} />
         </ImagesSection>
         <AmenitiesSection>
           <Amenities hotel={this.state.hotel}/>
