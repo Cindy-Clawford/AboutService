@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import styled from 'styled-components';
+
+const FeaturesContainer = styled.div`
+  padding: 12px 0;
+`
 
 const RoomFeatures = (props) => {
   var featuresIcons = {
@@ -23,12 +28,12 @@ const RoomFeatures = (props) => {
   };
 
   return (
-    <div>
-      <h3>Room features</h3>
-      <ul style={{columns: 2, listStyleType: "none", padding: "0px"}}>
-      {features.map((feature, index) => <li key={index} style={{padding: "7px"}}><img src={featuresIcons[feature]} height="20px" width="20px"></img>  {feature}</li>)}
-      </ul>
-    </div>
+    <FeaturesContainer>
+      <h4 style={{margin: "22px 0 0"}}>Room features</h4>
+      <div style={{columns: 2, listStyleType: "none", padding: "0px", margin: "10px 0"}}>
+      {features.map((feature, index) => <div key={index} style={{padding: "0 0 10px"}}><img src={featuresIcons[feature]} height="15px" width="15px" style={{verticalAlign: "middle"}}></img><span>  {feature}</span></div>)}
+      </div>
+    </FeaturesContainer>
   )
 }
 

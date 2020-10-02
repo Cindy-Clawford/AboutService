@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import styled from 'styled-components';
+
+const TypesContainer = styled.div`
+  padding: 12px 0;
+`
 
 const RoomTypes = (props) => {
   var roomTypesIcons = {
@@ -19,12 +24,12 @@ const RoomTypes = (props) => {
   };
 
   return (
-    <div>
-      <h3>Room types</h3>
-      <ul style={{columns: 2, listStyleType: "none", padding: "0px"}}>
-        {types.map((type, index) => <li key={index} style={{padding: "7px"}}><img src={roomTypesIcons[type]} height="20px" width="20px"></img>  {type}</li>)}
-      </ul>
-    </div>
+    <TypesContainer>
+      <h4 style={{margin: "22px 0 0"}}>Room types</h4>
+      <div style={{columns: 2, listStyleType: "none", padding: "0px", margin: "10px 0"}}>
+        {types.map((type, index) => <div key={index} style={{padding: "0 0 10px"}}><img src={roomTypesIcons[type]} height="15px" width="15px" style={{verticalAlign: "middle"}}></img><span>  {type}</span></div>)}
+      </div>
+    </TypesContainer>
   )
 }
 

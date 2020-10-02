@@ -31,10 +31,10 @@ const Amenities = (props) => {
 
   return (
     <AmenitiesContainer>
-      <h3>Property amenities</h3>
-      <ul style={{columns: 2, listStyleType: "none", padding: "0px"}}>
-        {amenities.map((amenity, index) => <li key={index} style={{padding: "7px"}}><img src={amenitiesIcons[amenity]} height="20px" width="20px"></img>  {amenity}</li>)}
-      </ul>
+      <h4 style={{margin: "22px 0 0"}}>Property amenities</h4>
+      <div style={{columns: 2, listStyleType: "none", padding: "0px", margin: "10px 0"}}>
+        {amenities.map((amenity, index) => <div key={index} style={{padding: "0 0 10px"}}><img src={amenitiesIcons[amenity]} height="15px" width="15px" style={{verticalAlign: "middle"}}></img><span>  {amenity}</span></div>)}
+      </div>
     </AmenitiesContainer>
   )
 }
