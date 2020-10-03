@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const ImagesContainer = styled.div`
   margin: 5px 0;
   width: 415px;
+  padding: 12px;
 `
 
 const LargeImageContainer = styled.div`
@@ -44,6 +45,7 @@ const FullViewButton = styled.button`
   padding: 24px 24px;
   border: none;
   border-radius: 5px;
+  outline: none;
 `
 
 const LeftCarouselButton = styled.button`
@@ -60,6 +62,7 @@ const LeftCarouselButton = styled.button`
   padding: 24px 24px;
   border: none;
   border-radius: 5px;
+  outline: none;
 `
 
 const RightCarouselButton = styled.button`
@@ -76,6 +79,7 @@ const RightCarouselButton = styled.button`
   padding: 24px 24px;
   border: none;
   border-radius: 5px;
+  outline: none;
 `
 class Images extends React.Component {
   constructor (props) {

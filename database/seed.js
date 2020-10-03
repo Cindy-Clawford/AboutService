@@ -1,13 +1,14 @@
 const faker = require('faker');
 const mongoose = require('mongoose');
 const databaseMethods = require('./Hotels');
+const descriptionGenerator = require('./descriptionGenerator.js');
 
 let fakeHotels = () => {
   var sampleHotels = []
   for (var i = 0; i < 100; i++) {
     var oneHotel = {
       hotel_name: `hotel${i}`,
-      description: faker.lorem.paragraphs(3, '\n'),
+      description: descriptionGenerator(),
       overall_rating: faker.random.number({
         min: 1.0,
         max: 5.0,
