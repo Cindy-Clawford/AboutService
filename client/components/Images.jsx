@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const ImagesContainer = styled.div`
   margin: 5px 0;
   width: 415px;
+  padding: 12px;
 `
 
 const LargeImageContainer = styled.div`

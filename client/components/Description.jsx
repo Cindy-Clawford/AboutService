@@ -5,7 +5,23 @@ import styled from 'styled-components';
 //styling
 
 const DescriptionContainer = styled.div`
-  padding: 24px 0;
+  height: 300px;
+  }
+`
+const ParagraphsContainer = styled.div`
+`
+const ReadMoreButton = styled.button`
+  background-color: white;
+  border: none;
+  border-bottom: dotted grey 1px;
+  outline: none;
+`
+
+const ReadLessButton = styled.button`
+  background-color: white;
+  border: none;
+  border-bottom: dotted grey 1px;
+  outline: none;
 `
 
 class Description extends React.Component {
@@ -13,11 +29,24 @@ class Description extends React.Component {
     super(props)
 
     this.state = {
-      readMore: true
+      readMore: true,
+      overflow: false
     }
 
     this.readMoreToggle = this.readMoreToggle.bind(this);
     this.readLessToggle = this.readLessToggle.bind(this);
+  }
+
+  componentDidMount(){
+    var pdiv = document.getElementById('paragraphs');
+    var hdiv = pdiv.offsetHeight;
+    if (hdiv > 300) {
+      this.setState({
+        overflow: true
+      }, () => {
+        console.log(this.state.overflow)
+      })
+    }
   }
 
   readMoreToggle() {
@@ -30,23 +59,26 @@ class Description extends React.Component {
 
   render() {
     let paragraphs = this.props.description.split("\n");
-    if (this.state.readMore){
+    if (!this.state.overflow) {
       return (
-        <DescriptionContainer>
-          <div>
-          {paragraphs[0]}
-            <button style={{backgroundColor: "white", border: "none", borderBottom: "dotted grey 1px", outline: "none"}} onClick={this.readMoreToggle}>Read More {String.fromCharCode(9662)}</button>
-          </div>
-        </DescriptionContainer>
+        <div>
+          <DescriptionContainer>
+            <ParagraphsContainer id="paragraphs">
+            {paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+            </ParagraphsContainer>
+          </DescriptionContainer>
+        </div>
       )
     } else {
       return (
-        <DescriptionContainer>
-          <div>
-          {paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-            <button style={{backgroundColor: "white", border: "none", borderBottom: "dotted grey 1px", outline: "none"}} onClick={this.readLessToggle}>Read Less {String.fromCharCode(9652)}</button>
-          </div>
-        </DescriptionContainer>
+        <div>
+          <DescriptionContainer style={{overflow: this.state.overflow ? "hidden" : "auto", height: this.state.readMore ? "300px" : "auto"}}>
+            <ParagraphsContainer id="paragraphs">
+            {paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+            </ParagraphsContainer>
+          </DescriptionContainer>
+          {this.state.overflow ? <div><ReadMoreButton style={{display: this.state.readMore ? "block" : "none"}} onClick={this.readMoreToggle}>Read More {String.fromCharCode(9662)}</ReadMoreButton><ReadLessButton style={{display: this.state.readMore ? "none" : "block"}} onClick={this.readLessToggle}>Read Less {String.fromCharCode(9652)}</ReadLessButton></div> : console.log('no overflow')}
+        </div>
       )
     }
   }
