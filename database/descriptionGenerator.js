@@ -7,7 +7,7 @@ const descriptionGenerator = () => {
 
   const numOfP = faker.random.number({
     min: 0,
-    max: 4
+    max: 2
   })
 
   const randomIntroIndex = faker.random.number({
