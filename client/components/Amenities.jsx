@@ -6,6 +6,17 @@ const AmenitiesContainer = styled.div`
   padding: 12px 0;
 `
 
+const ShowMoreAmenities = styled.button`
+  background: none;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  padding: 0;
+  &:hover {
+    border-bottom: solid 1px black
+  }
+`
+
 const Amenities = (props) => {
   var amenitiesIcons = {
     "Valet parking": "https://img.icons8.com/material-outlined/24/000000/parking.png",
@@ -60,11 +71,16 @@ const Amenities = (props) => {
     }
   };
 
+  var amenitiesToShow = amenities.slice(0, 8);
+
   return (
     <AmenitiesContainer>
       <h4 style={{margin: "22px 0 0"}}>Property amenities</h4>
-      <div style={{columns: 2, listStyleType: "none", padding: "0px", margin: "10px 0"}}>
-        {amenities.map((amenity, index) => <div key={index} style={{padding: "0 0 10px"}}><img src={amenitiesIcons[amenity]} height="15px" width="15px" style={{verticalAlign: "middle"}}></img><span>  {amenity}</span></div>)}
+      <div>
+        <div style={{columns: 2, listStyleType: "none", padding: "0px", margin: "10px 0"}}>
+          {amenitiesToShow.map((amenity, index) => <div key={index} style={{padding: "0 0 10px"}}><img src={amenitiesIcons[amenity]} height="15px" width="15px" style={{verticalAlign: "middle"}}></img><span>  {amenity}</span></div>)}
+        </div>
+        {amenities.length > 8 ? <ShowMoreAmenities>Show more</ShowMoreAmenities> : <div></div>}
       </div>
     </AmenitiesContainer>
   )
