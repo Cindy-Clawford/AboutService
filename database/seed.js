@@ -52,7 +52,38 @@ let fakeHotels = () => {
         "Fitness center": faker.random.boolean(),
         "Entertainment": faker.random.boolean(),
         "Business center": faker.random.boolean(),
-        "Spa": faker.random.boolean()
+        "Spa": faker.random.boolean(),
+        "Diving": faker.random.boolean(),
+        "Wifi": faker.random.boolean(),
+        "Hot tub": faker.random.boolean(),
+        "Kids club": faker.random.boolean(),
+        "Fishing": faker.random.boolean(),
+        "Airport transportation": faker.random.boolean(),
+        "Banquet room": faker.random.boolean(),
+        "Couples massage": faker.random.boolean(),
+        "Taxi service": faker.random.boolean(),
+        "Steam room": faker.random.boolean(),
+        "Salon": faker.random.boolean(),
+        "Gift shop": faker.random.boolean(),
+        "ATM on site": faker.random.boolean(),
+        "Dry cleaning": faker.random.boolean(),
+        "24-hour front desk": faker.random.boolean(),
+        "Karaoke": faker.random.boolean(),
+        "Aerobics": faker.random.boolean(),
+        "Swimup bar": faker.random.boolean(),
+        "Snack bar": faker.random.boolean(),
+        "Meeting rooms": faker.random.boolean(),
+        "Tennis courts": faker.random.boolean(),
+        "Free parking": faker.random.boolean(),
+        "Breakfast buffet": faker.random.boolean(),
+        "Shuttle bus service": faker.random.boolean(),
+        "24-hour security": faker.random.boolean(),
+        "Concierge": faker.random.boolean(),
+        "Currency exchange": faker.random.boolean(),
+        "Non-smoking hotel": faker.random.boolean(),
+        "Sun loungers/beach chairs": faker.random.boolean(),
+        "Doorperson": faker.random.boolean(),
+        "Shops": faker.random.boolean()
       },
       room_features: {
         "Air conditioning": faker.random.boolean(),
@@ -62,7 +93,18 @@ let fakeHotels = () => {
         "Wake-up service": faker.random.boolean(),
         "Housekeeping": faker.random.boolean(),
         "Iron": faker.random.boolean(),
-        "Balcony": faker.random.boolean()
+        "Balcony": faker.random.boolean(),
+        "Private beach": faker.random.boolean(),
+        "Additional bathroom": faker.random.boolean(),
+        "Interconnected rooms available": faker.random.boolean(),
+        "Kitchenette": faker.random.boolean(),
+        "Laptop safe": faker.random.boolean(),
+        "VIP room facilities": faker.random.boolean(),
+        "Refrigerator": faker.random.boolean(),
+        "Private balcony": faker.random.boolean(),
+        "Sofa": faker.random.boolean(),
+        "DVD/CD player": faker.random.boolean(),
+        "Microwave": faker.random.boolean()
       },
       room_types: {
         "Ocean View": faker.random.boolean(),
@@ -93,6 +135,8 @@ let fakeHotels = () => {
       min: 1,
       max: languageOptions.length
     })
+
+    oneHotel.room_types["Ocean View"] ? (oneHotel.room_types["Partial Ocean View"] = "false") : (oneHotel.room_types["Partial Ocean View"] = "true");
 
     for(var k = 0; k < numberOfLanguages; k++) {
       if (k === numberOfLanguages - 1) {

@@ -12,6 +12,7 @@ const RoomTypes = (props) => {
     "Suites": "https://img.icons8.com/material-outlined/24/000000/bed.png",
     "Family rooms": "https://img.icons8.com/material-outlined/24/000000/bed.png",
     "Non-smoking rooms": "https://img.icons8.com/fluent-systems-regular/24/000000/no-smoking.png",
+    "Partial Ocean View": "https://img.icons8.com/material-sharp/24/000000/wave-lines.png"
   }
   var types = [];
   var roomTypesValues = Object.values(props.hotel.room_types);

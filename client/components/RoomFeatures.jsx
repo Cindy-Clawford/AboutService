@@ -16,6 +16,17 @@ const RoomFeatures = (props) => {
     "Housekeeping": "https://img.icons8.com/material-outlined/24/000000/bed.png",
     "Iron": "https://img.icons8.com/material-outlined/24/000000/bed.png",
     "Balcony": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Private beach": "https://img.icons8.com/metro/26/000000/beach.png",
+    "Additional bathroom": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Interconnected rooms available": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Kitchenette": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Laptop safe": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "VIP room facilities": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Refrigerator": "https://img.icons8.com/fluent-systems-regular/24/000000/fridge.png",
+    "Private balcony": "https://img.icons8.com/material-outlined/24/000000/bed.png",
+    "Sofa": "https://img.icons8.com/fluent-systems-regular/24/000000/sofa.png",
+    "DVD/CD player": "https://img.icons8.com/android/24/000000/fast-forward.png",
+    "Microwave": "https://img.icons8.com/windows/32/000000/microwave.png"
   }
   var features = [];
   var roomFeatureValues = Object.values(props.hotel.room_features);
