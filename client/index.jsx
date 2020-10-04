@@ -19,6 +19,7 @@ const AboutContainer = styled.div`
   width: 900px;
   height: 100%;
   font-family: "arial";
+  position: relative;
 `
 const TitleSection = styled.h2`
     font-size: 28px;
@@ -43,6 +44,7 @@ const RightSection = styled.div`
   display: grid;
   padding: 12px;
 `
+
 //App
 class AboutApp extends React.Component {
   constructor() {
@@ -50,10 +52,7 @@ class AboutApp extends React.Component {
 
     this.state = {
       hotel: [],
-      readMore: false
     }
-
-    this.handleReadMore = this.handleReadMore.bind(this);
   }
 
   componentDidMount(){
@@ -70,18 +69,6 @@ class AboutApp extends React.Component {
     })
   }
 
-  handleReadMore(){
-    if (this.state.readMore) {
-      this.setState({
-        readMore: false
-      })
-    } else {
-      this.setState({
-        readMore: true
-      })
-    }
-  }
-
   render() {
     if (Array.isArray(this.state.hotel)) {
       return(
@@ -95,7 +82,7 @@ class AboutApp extends React.Component {
           <LeftSection>
             <Ratings hotel={this.state.hotel}/>
             <Description description={this.state.hotel.description} />
-          <Images images={this.state.hotel.images} />
+          <Images images={this.state.hotel.images}/>
         </LeftSection>
         <RightSection>
           <Amenities hotel={this.state.hotel}/>
