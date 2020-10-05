@@ -9,6 +9,7 @@ import RoomTypes from './components/RoomTypes.jsx'
 import Description from './components/Description.jsx';
 import OtherHotelInfo from './components/OtherHotelInfo.jsx';
 import Images from './components/Images.jsx';
+import AmenitiesPopout from './components/AmenitiesPopout.jsx'
 import styled from 'styled-components';
 
 //Styling
@@ -18,7 +19,7 @@ const AboutContainer = styled.div`
   border: 2px solid #D3D3D3;
   width: 900px;
   height: 100%;
-  font-family: "arial";
+  font-family: arial;
   position: relative;
 `
 const TitleSection = styled.h2`
@@ -45,6 +46,17 @@ const RightSection = styled.div`
   padding: 12px;
 `
 
+const AmenitiesPopoutContainer = styled.div`
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  border: 2px solid #D3D3D3;
+  width: 800px;
+  background-color: white;
+  font-family: arial;
+  padding: 36px;
+`
+
 //App
 class AboutApp extends React.Component {
   constructor() {
@@ -52,7 +64,12 @@ class AboutApp extends React.Component {
 
     this.state = {
       hotel: [],
+      hideBackground: false
     }
+
+    this.handleAmenitiesPopout = this.handleAmenitiesPopout.bind(this);
+    this.handleAmenitiesExit = this.handleAmenitiesExit.bind(this);
+
   }
 
   componentDidMount(){
@@ -69,6 +86,18 @@ class AboutApp extends React.Component {
     })
   }
 
+  handleAmenitiesPopout(){
+    this.setState({
+      hideBackground: true
+    })
+  }
+
+  handleAmenitiesExit() {
+    this.setState({
+      hideBackground: false
+    })
+  }
+
   render() {
     if (Array.isArray(this.state.hotel)) {
       return(
@@ -76,22 +105,27 @@ class AboutApp extends React.Component {
       )
     }
     return (
-      <AboutContainer>
-        <TitleSection>About</TitleSection>
-        <ContentSection>
-          <LeftSection>
-            <Ratings hotel={this.state.hotel}/>
-            <Description description={this.state.hotel.description} />
-          <Images images={this.state.hotel.images}/>
-        </LeftSection>
-        <RightSection>
-          <Amenities hotel={this.state.hotel}/>
-          <RoomFeatures hotel={this.state.hotel}/>
-          <RoomTypes hotel={this.state.hotel}/>
-          <OtherHotelInfo hotel={this.state.hotel}/>
-        </RightSection>
-        </ContentSection>
-    </AboutContainer>
+      <div>
+        <AboutContainer style={{opacity: this.state.hideBackground ? 0.2 : 1}}>
+          <TitleSection>About</TitleSection>
+          <ContentSection>
+            <LeftSection>
+              <Ratings hotel={this.state.hotel}/>
+              <Description description={this.state.hotel.description} />
+            <Images images={this.state.hotel.images}/>
+          </LeftSection>
+          <RightSection>
+            <Amenities hotel={this.state.hotel} handleAmenitiesPopout={this.handleAmenitiesPopout}/>
+            <RoomFeatures hotel={this.state.hotel} handleAmenitiesPopout={this.handleAmenitiesPopout}/>
+            <RoomTypes hotel={this.state.hotel}/>
+            <OtherHotelInfo hotel={this.state.hotel}/>
+          </RightSection>
+          </ContentSection>
+      </AboutContainer>
+      <AmenitiesPopoutContainer style={{display: this.state.hideBackground ? "block" : "none"}}>
+      <AmenitiesPopout hotel={this.state.hotel} handleAmenitiesExit={this.handleAmenitiesExit}/>
+      </AmenitiesPopoutContainer>
+    </div>
     )
   }
 }
