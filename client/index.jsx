@@ -107,6 +107,8 @@ class AboutApp extends React.Component {
     var picture = document.getElementById('pictureDisplayApp');
     if (picture) {
       picture.style.opacity = 1;
+      document.getElementById('booking-app').style.opacity = 1;
+      document.getElementById('ReviewApp').style.opacity = 1;
     }
     this.setState({
       hideBackground: false
