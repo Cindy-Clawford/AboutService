@@ -14,10 +14,23 @@ import styled from 'styled-components';
 
 //Styling
 
+const Overlay = styled.div`
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+`
+
 const AboutContainer = styled.div`
   padding: 24px;
   border: 2px solid #D3D3D3;
-  width: 60%;
+  width: 50%;
   height: 100%;
   font-family: arial;
   position: relative;
@@ -57,7 +70,7 @@ const AmenitiesPopoutContainer = styled.div`
   background-color: white;
   font-family: arial;
   padding: 36px;
-  z-index: 10;
+  z-index: 1001;
 `
 
 //App
@@ -92,11 +105,6 @@ class AboutApp extends React.Component {
   handleAmenitiesPopout(){
     document.getElementsByTagName('body')[0].style.overflow = "hidden";
     var picture = document.getElementById('pictureDisplayApp');
-    if (picture) {
-      picture.style.opacity = 0.2;
-      document.getElementById('booking-app').style.opacity = 0.2;
-      document.getElementById('ReviewApp').style.opacity = 0.2;
-    }
     this.setState({
       hideBackground: true
     })
@@ -104,12 +112,6 @@ class AboutApp extends React.Component {
 
   handleAmenitiesExit() {
     document.getElementsByTagName('body')[0].style.overflow = "visible";
-    var picture = document.getElementById('pictureDisplayApp');
-    if (picture) {
-      picture.style.opacity = 1;
-      document.getElementById('booking-app').style.opacity = 1;
-      document.getElementById('ReviewApp').style.opacity = 1;
-    }
     this.setState({
       hideBackground: false
     })
@@ -123,10 +125,11 @@ class AboutApp extends React.Component {
     }
     return (
       <div>
+        <Overlay style={{display: this.state.hideBackground ? "block" : "none",}} onClick={this.handleAmenitiesExit}></Overlay>
         <AmenitiesPopoutContainer style={{display: this.state.hideBackground ? "block" : "none"}}>
           <AmenitiesPopout hotel={this.state.hotel} handleAmenitiesExit={this.handleAmenitiesExit}/>
         </AmenitiesPopoutContainer>
-        <AboutContainer style={{opacity: this.state.hideBackground ? "0.2" : "1"}}>
+        <AboutContainer>
           <TitleSection>About</TitleSection>
           <ContentSection>
             <LeftSection>
