@@ -17,23 +17,25 @@ import styled from 'styled-components';
 const AboutContainer = styled.div`
   padding: 24px;
   border: 2px solid #D3D3D3;
-  width: 900px;
+  width: 60%;
   height: 100%;
   font-family: arial;
   position: relative;
+  background: white;
 `
+
 const TitleSection = styled.h2`
-    font-size: 28px;
-    padding: 18px;
-    margin: 0;
-    border-bottom: solid 2px #D3D3D3;
+  font-size: 28px;
+  padding: 18px;
+  margin: 0;
+  border-bottom: solid 2px #D3D3D3;
 `
 
 const ContentSection = styled.div`
-    align-items: start;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1em;
+  align-items: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1em;
 `
 
 const LeftSection = styled.div`
@@ -47,14 +49,15 @@ const RightSection = styled.div`
 `
 
 const AmenitiesPopoutContainer = styled.div`
-  position: absolute;
-  left: 30%;
-  top: 20%;
+  position: fixed;
+  left: 25%;
+  top: 10%;
   border: 2px solid #D3D3D3;
   width: 800px;
   background-color: white;
   font-family: arial;
   padding: 36px;
+  z-index: 10;
 `
 
 //App
@@ -87,12 +90,24 @@ class AboutApp extends React.Component {
   }
 
   handleAmenitiesPopout(){
+    document.getElementsByTagName('body')[0].style.overflow = "hidden";
+    var picture = document.getElementById('pictureDisplayApp');
+    if (picture) {
+      picture.style.opacity = 0.2;
+      document.getElementById('booking-app').style.opacity = 0.2;
+      document.getElementById('ReviewApp').style.opacity = 0.2;
+    }
     this.setState({
       hideBackground: true
     })
   }
 
   handleAmenitiesExit() {
+    document.getElementsByTagName('body')[0].style.overflow = "visible";
+    var picture = document.getElementById('pictureDisplayApp');
+    if (picture) {
+      picture.style.opacity = 1;
+    }
     this.setState({
       hideBackground: false
     })
@@ -106,7 +121,10 @@ class AboutApp extends React.Component {
     }
     return (
       <div>
-        <AboutContainer style={{opacity: this.state.hideBackground ? 0.2 : 1}}>
+        <AmenitiesPopoutContainer style={{display: this.state.hideBackground ? "block" : "none"}}>
+          <AmenitiesPopout hotel={this.state.hotel} handleAmenitiesExit={this.handleAmenitiesExit}/>
+        </AmenitiesPopoutContainer>
+        <AboutContainer style={{opacity: this.state.hideBackground ? "0.2" : "1"}}>
           <TitleSection>About</TitleSection>
           <ContentSection>
             <LeftSection>
@@ -122,9 +140,6 @@ class AboutApp extends React.Component {
           </RightSection>
           </ContentSection>
       </AboutContainer>
-      <AmenitiesPopoutContainer style={{display: this.state.hideBackground ? "block" : "none"}}>
-      <AmenitiesPopout hotel={this.state.hotel} handleAmenitiesExit={this.handleAmenitiesExit}/>
-      </AmenitiesPopoutContainer>
     </div>
     )
   }

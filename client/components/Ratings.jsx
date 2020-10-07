@@ -73,13 +73,13 @@ const Ratings = (props) => {
   var renderCircles = (circleType) =>{
     return circleType.map((circle, index) => {
       var greenCircle = circle * 100;
-      var whiteCircle = 100 - greenCircle;
+      var whiteCircle = 100 - greenCircle -2;
       if (greenCircle === 0) {
         return (
           <RatingCircle key={index} style={{background: `white`}} ></RatingCircle>)
       }
       return (
-      <RatingCircle key={index} style={{background: `linear-gradient(90deg, #00B48B ${greenCircle}%, white ${whiteCircle}%)`}} ></RatingCircle>)
+      <RatingCircle key={index} style={{background: `linear-gradient(90deg, #00B48B ${greenCircle}%, white 2%, white ${whiteCircle}%)`}} ></RatingCircle>)
     })
   }
 
