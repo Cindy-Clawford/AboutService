@@ -80,12 +80,13 @@ class AboutApp extends React.Component {
 
     this.state = {
       hotel: [],
-      hideBackground: false
+      hideBackground: false,
+      amenities: false
     }
 
-    this.handleAmenitiesPopout = this.handleAmenitiesPopout.bind(this);
-    this.handleAmenitiesExit = this.handleAmenitiesExit.bind(this);
-
+    this.handlePopoutWindow = this.handlePopoutWindow.bind(this);
+    this.handleExit = this.handleExit.bind(this);
+    this.handleShowAmenities = this.handleShowAmenities.bind(this);
   }
 
   componentDidMount(){
@@ -102,7 +103,7 @@ class AboutApp extends React.Component {
     })
   }
 
-  handlePopout(){
+  handlePopoutWindow(){
     document.getElementsByTagName('body')[0].style.overflow = "hidden";
     this.setState({
       hideBackground: true
@@ -113,6 +114,18 @@ class AboutApp extends React.Component {
     document.getElementsByTagName('body')[0].style.overflow = "visible";
     this.setState({
       hideBackground: false
+    }, () => {
+      if (this.state.amenities){
+        this.setState({
+          amenities: false
+        })
+      }
+    })
+  }
+
+  handleShowAmenities(){
+    this.setState({
+      amenities: true
     })
   }
 
@@ -124,9 +137,9 @@ class AboutApp extends React.Component {
     }
     return (
       <div>
-        <Overlay style={{display: this.state.hideBackground ? "block" : "none",}} onClick={this.handleAmenitiesExit}></Overlay>
-        <AmenitiesPopoutContainer style={{display: this.state.hideBackground ? "block" : "none"}}>
-          <AmenitiesPopout hotel={this.state.hotel} handleAmenitiesExit={this.handleAmenitiesExit}/>
+        <Overlay style={{display: this.state.hideBackground ? "block" : "none",}} onClick={this.handleExit}></Overlay>
+        <AmenitiesPopoutContainer style={{display: this.state.amenities ? "block" : "none"}}>
+          <AmenitiesPopout hotel={this.state.hotel} handleExit={this.handleExit}/>
         </AmenitiesPopoutContainer>
         <AboutContainer>
           <TitleSection>About</TitleSection>
@@ -134,11 +147,11 @@ class AboutApp extends React.Component {
             <LeftSection>
               <Ratings hotel={this.state.hotel}/>
               <Description description={this.state.hotel.description} />
-            <Images images={this.state.hotel.images}/>
+            <Images images={this.state.hotel.images} handlePopoutWindow={this.handlePopoutWindow} hideBackground={this.state.hideBackground}handleExit={this.handleExit}/>
           </LeftSection>
           <RightSection>
-            <Amenities hotel={this.state.hotel} handlePopout={this.handleAmenitiesPopout}/>
-            <RoomFeatures hotel={this.state.hotel} handleAmenitiesPopout={this.handleAmenitiesPopout}/>
+            <Amenities hotel={this.state.hotel} handlePopoutWindow={this.handlePopoutWindow} handleShowAmenities={this.handleShowAmenities}/>
+            <RoomFeatures hotel={this.state.hotel} handlePopoutWindow={this.handlePopoutWindow} handleShowAmenities={this.handleShowAmenities}/>
             <RoomTypes hotel={this.state.hotel}/>
             <OtherHotelInfo hotel={this.state.hotel}/>
           </RightSection>

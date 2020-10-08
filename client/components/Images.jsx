@@ -124,6 +124,7 @@ class Images extends React.Component {
   }
 
   handlePopOut(photoIndex) {
+    this.props.handlePopoutWindow()
     this.setState({
       popoutPhotoIndex: photoIndex,
       popout: true
@@ -131,6 +132,7 @@ class Images extends React.Component {
   }
 
   handleClosePopout() {
+    this.props.handleExit()
     this.setState({
       popout: false
     })

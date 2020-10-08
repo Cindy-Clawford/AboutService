@@ -50,7 +50,7 @@ class AmenitiesPopout extends React.Component {
   }
 
   handleExitClick() {
-    this.props.handleAmenitiesExit()
+    this.props.handleExit()
   }
 
   render () {
