@@ -11,6 +11,7 @@ const RatingContainer = styled.div`
 const RatingNumber = styled.span`
   font-weight: bolder;
   font-size: 50px;
+  margin: 0 2px 0 0;
 `
 
 const OverallSection = styled.div`
