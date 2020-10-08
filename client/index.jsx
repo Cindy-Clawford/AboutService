@@ -102,15 +102,14 @@ class AboutApp extends React.Component {
     })
   }
 
-  handleAmenitiesPopout(){
+  handlePopout(){
     document.getElementsByTagName('body')[0].style.overflow = "hidden";
-    var picture = document.getElementById('pictureDisplayApp');
     this.setState({
       hideBackground: true
     })
   }
 
-  handleAmenitiesExit() {
+  handleExit() {
     document.getElementsByTagName('body')[0].style.overflow = "visible";
     this.setState({
       hideBackground: false
@@ -138,7 +137,7 @@ class AboutApp extends React.Component {
             <Images images={this.state.hotel.images}/>
           </LeftSection>
           <RightSection>
-            <Amenities hotel={this.state.hotel} handleAmenitiesPopout={this.handleAmenitiesPopout}/>
+            <Amenities hotel={this.state.hotel} handlePopout={this.handleAmenitiesPopout}/>
             <RoomFeatures hotel={this.state.hotel} handleAmenitiesPopout={this.handleAmenitiesPopout}/>
             <RoomTypes hotel={this.state.hotel}/>
             <OtherHotelInfo hotel={this.state.hotel}/>

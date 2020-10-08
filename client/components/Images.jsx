@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ImagePopOut from './ImagePopOut.jsx';
 
 const ImagesContainer = styled.div`
   margin: 5px 0;
@@ -65,7 +66,7 @@ const LeftCarouselButton = styled.button`
   border: none;
   border-radius: 5px;
   outline: none;
-  z-index: 6;
+  z-index: 900;
 `
 
 const RightCarouselButton = styled.button`
@@ -83,37 +84,17 @@ const RightCarouselButton = styled.button`
   border: none;
   border-radius: 5px;
   outline: none;
-  z-index: 6;
+  z-index: 900;
 `
 
 const ImagePopOutContainer = styled.div`
-  position:absolute;
-  z-index: 2;
-  top: 20%;
-  left: 50%;
-  height: 1000px;
-  width: 1400px;
-  background-color: grey;
-`
-
-const ImagePopOut = styled.img`
-  position: absolute;
-  top: 10%;
-  left: 7%;
-  width: 1200px;
-  height: 800px;
-  z-index: 4;
-`
-
-const ExitButton = styled.button`
-  position: absolute;
-  background: none;
-  outline: none;
-  color: black;
-  right: 0;
-  font-size: 50px;
-  z-index: 6;
-  border: none;
+  position:fixed;
+  top: 5%;
+  left: 5%;
+  height: 90%;
+  width: 90%;
+  background-color: black;
+  z-index: 1001;
 `
 
 class Images extends React.Component {
@@ -128,16 +109,10 @@ class Images extends React.Component {
   }
 
 
-  changePhoto(change, type) {
+  changePhoto(change) {
     this.setState((prevState) => {
-      if (type === 'popout') {
-        return {
-          popoutPhotoIndex: change === 'next' ? prevState.popoutPhotoIndex + 1 : prevState.popoutPhotoIndex -1
-        }
-      } else {
-        return {
+      return {
         currentPhotoIndex: change === 'next' ? prevState.currentPhotoIndex + 1 : prevState.currentPhotoIndex -1
-        }
       }
     })
   }
@@ -155,7 +130,7 @@ class Images extends React.Component {
     })
   }
 
-  handleExitClick() {
+  handleClosePopout() {
     this.setState({
       popout: false
     })
@@ -166,9 +141,9 @@ class Images extends React.Component {
       <ImagesContainer>
         <LargeImageContainer>
           <LargeImage src={this.props.images[this.state.currentPhotoIndex]}/>
-          <LeftCarouselButton style={{display: this.state.currentPhotoIndex === 0 ? "none" :  "block" }} onClick={this.changePhoto.bind(this, 'previous', 'current')}>{String.fromCharCode(10094)}</LeftCarouselButton>
+          <LeftCarouselButton style={{display: this.state.currentPhotoIndex === 0 ? "none" :  "block" }} onClick={this.changePhoto.bind(this, 'previous')}>{String.fromCharCode(10094)}</LeftCarouselButton>
           <FullViewButton onClick={this.handlePopOut.bind(this, this.state.currentPhotoIndex)}>Full View</FullViewButton>
-          <RightCarouselButton style={{display: this.state.currentPhotoIndex === this.props.images.length - 1 ? "none" :  "block" }} onClick={this.changePhoto.bind(this, 'next')}>{String.fromCharCode(10095)}</RightCarouselButton>
+          <RightCarouselButton style={{display: this.state.currentPhotoIndex === this.props.images.length - 1 ? "none" :  "block" }} onClick={this.changePhoto.bind(this, 'next')}>{console.log('photoindex', this.state.currentPhotoIndex)}{String.fromCharCode(10095)}</RightCarouselButton>
         </LargeImageContainer>
         <ThumbnailContainer>
           {this.props.images.map((image, index) => {
@@ -182,11 +157,8 @@ class Images extends React.Component {
             )
           })}
         </ThumbnailContainer>
-        <ImagePopOutContainer style={{display: this.state.popout ? "block" : "none", }}>
-          <ImagePopOut src={this.props.images[this.state.popoutPhotoIndex]} />
-          <ExitButton onClick={this.handleExitClick.bind(this)}>{String.fromCharCode(10005)}</ExitButton>
-          <LeftCarouselButton style={{display: this.state.popoutPhotoIndex === 0 ? "none" :  "block", left: "7%" }} onClick={this.changePhoto.bind(this, 'previous', 'popout')}>{String.fromCharCode(10094)}</LeftCarouselButton>
-          <RightCarouselButton style={{display: this.state.popoutPhotoIndex === this.props.images.length - 1 ? "none" :  "block", right: "7%"}} onClick={this.changePhoto.bind(this, 'next', 'popout')}>{String.fromCharCode(10095)}</RightCarouselButton>
+        <ImagePopOutContainer style={{display: this.state.popout ? "block" : "none"}}>
+          <ImagePopOut popoutImages={this.props.images} handleClosePopout={this.handleClosePopout.bind(this)} photoIndex={this.state.popoutPhotoIndex}></ImagePopOut>
         </ImagePopOutContainer>
       </ImagesContainer>
     )
