@@ -31,7 +31,8 @@ const Amenities = (props) => {
   var amenitiesToShow = amenities.slice(0, 8);
 
   var handleAmentitiesShow = () => {
-    props.handleAmenitiesPopout()
+    props.handlePopoutWindow();
+    props.handleShowAmenities();
   }
 
   return (

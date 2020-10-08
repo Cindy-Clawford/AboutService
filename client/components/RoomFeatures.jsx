@@ -33,7 +33,8 @@ const RoomFeatures = (props) => {
   var featuresToShow = features.slice(0, 6);
 
   var handleAmentitiesShow = () => {
-    props.handleAmenitiesPopout()
+    props.handlePopoutWindow();
+    props.handleShowAmenities();
   }
 
   return (
