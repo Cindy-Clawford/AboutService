@@ -22,7 +22,7 @@ const RoomTypes = (props) => {
     <TypesContainer>
       <h4 style={{margin: "22px 0 0"}}>Room types</h4>
       <div style={{columns: 2, listStyleType: "none", padding: "0px", margin: "10px 0"}}>
-        {types.map((type, index) => <div key={index} style={{padding: "0 0 10px"}}><img src={amenitiesIcons[type]} height="15px" width="15px" style={{verticalAlign: "middle"}}></img><span>  {type}</span></div>)}
+        {types.map((type, index) => <div key={index} style={{padding: "0 0 10px", fontSize: "12px"}}><img src={amenitiesIcons[type]} height="12px" width="12px" style={{verticalAlign: "middle"}}></img><span>  {type}</span></div>)}
       </div>
     </TypesContainer>
   )

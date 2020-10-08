@@ -4,7 +4,7 @@ import ImagePopOut from './ImagePopOut.jsx';
 
 const ImagesContainer = styled.div`
   margin: 5px 0;
-  width: 415px;
+  width: 320px;
   padding: 12px 0;
 `
 
@@ -13,8 +13,8 @@ const LargeImageContainer = styled.div`
 `
 
 const LargeImage = styled.img`
-  width: 415px;
-  height: 315px;
+  width: 320px;
+  height: 180px;
   object-fit: cover;
 `
 
@@ -27,8 +27,8 @@ const ThumbnailContainer = styled.div`
 
 const ThumbnailPhoto = styled.img`
   opacity: 0.5;
-  width: 50px;
-  height: 50px;
+  width: 38px;
+  height: 38px;
   &:hover {
     opacity: 1;
   }
@@ -45,7 +45,7 @@ const FullViewButton = styled.button`
   background-color: #555;
   color: white;
   font-size: 16px;
-  padding: 24px 24px;
+  padding: 16px 16px;
   border: none;
   border-radius: 5px;
   outline: none;
@@ -62,7 +62,7 @@ const LeftCarouselButton = styled.button`
   background-color: #555;
   color: white;
   font-size: 16px;
-  padding: 24px 24px;
+  padding: 16px 16px;
   border: none;
   border-radius: 5px;
   outline: none;
@@ -80,7 +80,7 @@ const RightCarouselButton = styled.button`
   background-color: #555;
   color: white;
   font-size: 16px;
-  padding: 24px 24px;
+  padding: 16px 16px;
   border: none;
   border-radius: 5px;
   outline: none;

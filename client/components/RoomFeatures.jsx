@@ -42,7 +42,7 @@ const RoomFeatures = (props) => {
       <h4 style={{margin: "22px 0 0"}}>Room features</h4>
       <div>
         <div style={{columns: 2, listStyleType: "none", padding: "0px", margin: "10px 0"}}>
-        {featuresToShow.map((feature, index) => <div key={index} style={{padding: "0 0 10px"}}><img src={amenitiesIcons[feature]} height="15px" width="15px" style={{verticalAlign: "middle"}}></img><span>  {feature}</span></div>)}
+        {featuresToShow.map((feature, index) => <div key={index} style={{padding: "0 0 10px", fontSize: "12px"}}><img src={amenitiesIcons[feature]} height="12px" width="12px" style={{verticalAlign: "middle"}}></img><span>  {feature}</span></div>)}
       </div>
       {features.length > 6 ? <ShowMoreFeatures onClick={() => handleAmentitiesShow()}>Show more</ShowMoreFeatures> : <div></div>}
       </div>

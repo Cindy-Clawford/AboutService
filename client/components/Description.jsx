@@ -9,6 +9,7 @@ const DescriptionContainer = styled.div`
   }
 `
 const ParagraphsContainer = styled.div`
+  font-size: 14px;
 `
 const ReadMoreButton = styled.button`
   background-color: white;

@@ -30,7 +30,7 @@ const Overlay = styled.div`
 const AboutContainer = styled.div`
   padding: 24px;
   border: 2px solid #D3D3D3;
-  width: 50%;
+  width: 700px;
   height: 100%;
   font-family: arial;
   position: relative;
