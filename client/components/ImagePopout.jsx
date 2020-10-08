@@ -104,35 +104,42 @@ class ImagePopout extends React.Component {
     super(props)
 
     this.state = {
-      popoutIndex: 0
+      popoutIndex: this.props.photoIndex,
+      fromCurrentPhoto: true
     }
   }
 
-  componentDidMount(){
-    if (this.props.photoIndex !== this.state.popoutIndex) {
+  componentDidUpdate(){
+    if ((this.props.photoIndex !== this.state.popoutIndex) && (this.state.fromCurrentPhoto)) {
       this.setState({
         popoutIndex: this.props.photoIndex
-      })
+      }, console.log('changed photo'))
     }
   }
 
   changePopoutPhoto(change) {
     this.setState((prevState) => {
       return {
+        fromCurrentPhoto: false,
         popoutIndex: change === 'next' ? prevState.popoutIndex + 1 : prevState.popoutIndex -1
       }
     })
   }
 
   handlePopThumbnailClick(photoIndex) {
-    console.log(this.state.popoutIndex, photoIndex)
     this.setState({
-      popoutIndex: photoIndex
+      popoutIndex: photoIndex,
+      fromCurrentPhoto: false,
     })
   }
 
   handleExitClick(){
     this.props.handleClosePopout()
+    if (!this.state.fromCurrentPhoto){
+      this.setState({
+        fromCurrentPhoto: true,
+      })
+    }
   }
 
   render() {
@@ -155,8 +162,8 @@ class ImagePopout extends React.Component {
         </LeftPanel>
           <MainImageContainer>
             <MainImage src={this.props.popoutImages[this.state.popoutIndex]} />
-          <PopLeftCarouselButton style={{display: this.state.popoutIndex === 0 ? "none" :  "block"}} onClick={this.changePopoutPhoto.bind(this, 'previous')}>{String.fromCharCode(10094)}</PopLeftCarouselButton>
-          <PopRightCarouselButton style={{display: this.state.popoutIndex === this.props.popoutImages.length - 1 ? "none" :  "block"}} onClick={this.changePopoutPhoto.bind(this, 'next', 'popout')}>{String.fromCharCode(10095)}</PopRightCarouselButton>
+            <PopLeftCarouselButton style={{display: this.state.popoutIndex === 0 ? "none" :  "block"}} onClick={this.changePopoutPhoto.bind(this, 'previous')}>{String.fromCharCode(10094)}</PopLeftCarouselButton>
+            <PopRightCarouselButton style={{display: this.state.popoutIndex === this.props.popoutImages.length - 1 ? "none" :  "block"}} onClick={this.changePopoutPhoto.bind(this, 'next', 'popout')}>{String.fromCharCode(10095)}</PopRightCarouselButton>
           </MainImageContainer>
       </div>
     )
