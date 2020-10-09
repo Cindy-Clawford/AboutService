@@ -18,6 +18,22 @@ app.get('/api/hotel/:hotelId', (req, res) => {
     })
 })
 
+app.get('/:hotelName', (req, res) => {
+  const fileName = 'index.html';
+  const options = {
+    root: path.join(__dirname, '../dist')
+  };
+  res.sendFile(fileName, options, (err) => {
+    if(err) {
+      console.error(err);
+      return;
+    } else {
+      console.log('success')
+      return;
+    }
+  })
+})
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
 })

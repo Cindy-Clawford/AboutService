@@ -90,11 +90,12 @@ class AboutApp extends React.Component {
   }
 
   componentDidMount(){
-    var hotelNumber = Math.floor(Math.random() * Math.floor(100));
-    console.log(hotelNumber)
+    var hotelName = window.location.pathname.slice(1);
+    hotelName = hotelName === '' ? 'hotel0' : hotelName
+    console.log(hotelName)
     $.ajax({
       type: 'GET',
-      url: `/api/hotel/hotel${hotelNumber}`,
+      url: `/api/hotel/${hotelName}`,
       success: (result) => {
         this.setState({
           hotel: result
