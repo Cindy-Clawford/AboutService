@@ -44,8 +44,6 @@ class Description extends React.Component {
     if (hdiv > 300) {
       this.setState({
         overflow: true
-      }, () => {
-        console.log(this.state.overflow)
       })
     }
   }
@@ -78,7 +76,7 @@ class Description extends React.Component {
             {paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
             </ParagraphsContainer>
           </DescriptionContainer>
-          {this.state.overflow ? <div><ReadMoreButton style={{display: this.state.readMore ? "block" : "none"}} onClick={this.readMoreToggle}>Read More {String.fromCharCode(9662)}</ReadMoreButton><ReadLessButton style={{display: this.state.readMore ? "none" : "block"}} onClick={this.readLessToggle}>Read Less {String.fromCharCode(9652)}</ReadLessButton></div> : console.log('no overflow')}
+          {this.state.overflow ? <div><ReadMoreButton style={{display: this.state.readMore ? "block" : "none"}} onClick={this.readMoreToggle}>Read More {String.fromCharCode(9662)}</ReadMoreButton><ReadLessButton style={{display: this.state.readMore ? "none" : "block"}} onClick={this.readLessToggle}>Read Less {String.fromCharCode(9652)}</ReadLessButton></div> : <div></div>}
         </div>
       )
     }
