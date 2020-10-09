@@ -13,6 +13,7 @@ const TitleSection = styled.div`
   padding: 12px;
   text-align: center;
   border-bottom: none;
+  z-index: 1003;
 `
 
 const ViewContainer = styled.div`
@@ -40,17 +41,30 @@ class AmenitiesPopout extends React.Component {
     this.state = {
       show: 'amenities',
       popout: true,
+      viewSwitched: false
+    }
+  }
+
+  componentDidUpdate(){
+    if((this.props.view !== this.state.show) && (!this.state.viewSwitched)) {
+      this.setState({
+        show: this.props.view
+      })
     }
   }
 
   handleView(view) {
     this.setState({
-      show: view
+      show: view,
+      viewSwitched: true
     })
   }
 
   handleExitClick() {
     this.props.handleExit()
+    this.setState({
+      viewSwitched: false
+    })
   }
 
   render () {
@@ -84,23 +98,30 @@ class AmenitiesPopout extends React.Component {
       }
     };
 
+    var clickedStyle = {
+      borderBottom: "4px solid white",
+      marginBottom: "-2px",
+      borderTopColor: "black",
+      borderTopWidth: "thick"
+    }
+
     return (
       <div>
         <h1 style={{fontWeight: "normal"}}>Amenities</h1>
         <TitleContainer>
-          <TitleSection onClick={this.handleView.bind(this, 'amenities')}>Property amenities</TitleSection>
-          <TitleSection onClick={this.handleView.bind(this, 'features')}>Room features</TitleSection>
-          <TitleSection onClick={this.handleView.bind(this, 'types')}>Room types</TitleSection>
+          <TitleSection onClick={this.handleView.bind(this, 'amenities')} style={this.state.show === 'amenities' ? clickedStyle : {}}>Property amenities</TitleSection>
+          <TitleSection onClick={this.handleView.bind(this, 'features')} style={this.state.show === 'features' ? clickedStyle : {}}>Room features</TitleSection>
+          <TitleSection onClick={this.handleView.bind(this, 'types')} style={this.state.show === 'types' ? clickedStyle : {}}>Room types</TitleSection>
         </TitleContainer>
         <ViewContainer>
           <div style={{display: this.state.show === 'amenities' ? "block" : "none"}}>
-          {amenities.map((amenity, index) => <div key={index} style={{padding: "10px"}}><img src={amenitiesIcons[amenity]} height="15px" width="15px" style={{verticalAlign: "middle"}}></img><span>  {amenity}</span></div>)}
+          {amenities.map((amenity, index) => <div key={index} style={{padding: "10px"}}><img src={amenitiesIcons[amenity]} height="12px" width="12px" style={{verticalAlign: "middle", fontSize: "12px"}}></img><span>  {amenity}</span></div>)}
           </div>
           <div style={{display: this.state.show === 'features' ? "block" : "none"}}>
-            {features.map((feature, index) => <div key={index} style={{padding: "10px"}}><img src={amenitiesIcons[feature]} height="15px" width="15px" style={{verticalAlign: "middle"}}></img><span>  {feature}</span></div>)}
+            {features.map((feature, index) => <div key={index} style={{padding: "10px"}}><img src={amenitiesIcons[feature]} height="12px" width="12px" style={{verticalAlign: "middle", fontSize: "12px"}}></img><span>  {feature}</span></div>)}
           </div>
           <div style={{display: this.state.show === 'types' ? "block" : "none"}}>
-            {types.map((type, index) => <div key={index} style={{padding: "10px"}}><img src={amenitiesIcons[type]} height="15px" width="15px" style={{verticalAlign: "middle"}}></img><span>  {type}</span></div>)}
+            {types.map((type, index) => <div key={index} style={{padding: "10px"}}><img src={amenitiesIcons[type]} height="12px" width="12px" style={{verticalAlign: "middle", fontSize: "12px"}}></img><span>  {type}</span></div>)}
           </div>
         </ViewContainer>
         <ExitButton onClick={this.handleExitClick.bind(this)}>{String.fromCharCode(10005)}</ExitButton>
