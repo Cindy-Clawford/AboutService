@@ -32,9 +32,9 @@ const RoomFeatures = (props) => {
 
   var featuresToShow = features.slice(0, 6);
 
-  var handleAmentitiesShow = () => {
+  var handleAmentitiesShow = (view) => {
     props.handlePopoutWindow();
-    props.handleShowAmenities();
+    props.handleShowAmenities(view);
   }
 
   return (
@@ -44,7 +44,7 @@ const RoomFeatures = (props) => {
         <div style={{columns: 2, listStyleType: "none", padding: "0px", margin: "10px 0"}}>
         {featuresToShow.map((feature, index) => <div key={index} style={{padding: "0 0 10px", fontSize: "12px"}}><img src={amenitiesIcons[feature]} height="12px" width="12px" style={{verticalAlign: "middle"}}></img><span>  {feature}</span></div>)}
       </div>
-      {features.length > 6 ? <ShowMoreFeatures onClick={() => handleAmentitiesShow()}>Show more</ShowMoreFeatures> : <div></div>}
+      {features.length > 6 ? <ShowMoreFeatures onClick={() => handleAmentitiesShow('features')}>Show more</ShowMoreFeatures> : <div></div>}
       </div>
     </FeaturesContainer>
   )

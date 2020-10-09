@@ -145,7 +145,7 @@ class Images extends React.Component {
           <LargeImage src={this.props.images[this.state.currentPhotoIndex]}/>
           <LeftCarouselButton style={{display: this.state.currentPhotoIndex === 0 ? "none" :  "block" }} onClick={this.changePhoto.bind(this, 'previous')}>{String.fromCharCode(10094)}</LeftCarouselButton>
           <FullViewButton onClick={this.handlePopOut.bind(this, this.state.currentPhotoIndex)}>Full View</FullViewButton>
-          <RightCarouselButton style={{display: this.state.currentPhotoIndex === this.props.images.length - 1 ? "none" :  "block" }} onClick={this.changePhoto.bind(this, 'next')}>{console.log('photoindex', this.state.currentPhotoIndex)}{String.fromCharCode(10095)}</RightCarouselButton>
+          <RightCarouselButton style={{display: this.state.currentPhotoIndex === this.props.images.length - 1 ? "none" :  "block" }} onClick={this.changePhoto.bind(this, 'next')}>{String.fromCharCode(10095)}</RightCarouselButton>
         </LargeImageContainer>
         <ThumbnailContainer>
           {this.props.images.map((image, index) => {

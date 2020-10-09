@@ -30,9 +30,9 @@ const Amenities = (props) => {
 
   var amenitiesToShow = amenities.slice(0, 8);
 
-  var handleAmentitiesShow = () => {
+  var handleAmentitiesShow = (view) => {
     props.handlePopoutWindow();
-    props.handleShowAmenities();
+    props.handleShowAmenities(view);
   }
 
   return (
@@ -42,7 +42,7 @@ const Amenities = (props) => {
         <div style={{columns: 2, listStyleType: "none", padding: "0px", margin: "10px 0"}}>
           {amenitiesToShow.map((amenity, index) => <div key={index} style={{padding: "0 0 10px", fontSize: "12px"}}><img src={amenitiesIcons[amenity]} height="12px" width="12px" style={{verticalAlign: "middle"}}></img><span>  {amenity}</span></div>)}
         </div>
-        {amenities.length > 8 ? <ShowMoreAmenities onClick={() => handleAmentitiesShow()}>Show more</ShowMoreAmenities> : <div></div>}
+        {amenities.length > 8 ? <ShowMoreAmenities onClick={() => handleAmentitiesShow('amenities')} >Show more</ShowMoreAmenities> : <div></div>}
       </div>
     </AmenitiesContainer>
   )
