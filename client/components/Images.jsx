@@ -95,6 +95,7 @@ const ImagePopOutContainer = styled.div`
   width: 90%;
   background-color: black;
   z-index: 1001;
+  overflow: hidden;
 `
 
 class Images extends React.Component {
