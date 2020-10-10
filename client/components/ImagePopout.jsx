@@ -8,6 +8,7 @@ const MainImageContainer = styled.div`
   width: 1200px;
   height: 675px;
   z-index: 1007;
+  overflow: hidden;
 `
 
 const MainImage = styled.img`
@@ -15,7 +16,7 @@ const MainImage = styled.img`
   object-fit: cover;
   width: 1200px;
   height: 675px;
-  z-index: 1002;
+  z-index: 1010;
 `
 
 const PopoutTop = styled.div`
@@ -35,11 +36,10 @@ const ExitButton = styled.button`
   font-size: 50px;
   z-index: 1003;
   border: none;
+  float: right;
 `
 
 const LeftPanel = styled.div`
-  /* display: flex;
-  flex-direction: column; */
   position: absolute;
   background: grey;
   height: 95.6%;
@@ -78,7 +78,8 @@ const PopRightCarouselButton = styled.button`
   border: none;
   border-radius: 5px;
   outline: none;
-  z-index: 10003;
+  z-index: 1020;
+  float: right;
 `
 
 const PopLeftCarouselButton = styled.button`
@@ -96,7 +97,7 @@ const PopLeftCarouselButton = styled.button`
   border: none;
   border-radius: 5px;
   outline: none;
-  z-index: 1003;
+  z-index: 1020;
 `
 
 class ImagePopout extends React.Component {
@@ -113,7 +114,7 @@ class ImagePopout extends React.Component {
     if ((this.props.photoIndex !== this.state.popoutIndex) && (this.state.fromCurrentPhoto)) {
       this.setState({
         popoutIndex: this.props.photoIndex
-      }, console.log('changed photo'))
+      })
     }
   }
 
