@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ImagePopOut from './ImagePopOut.jsx';
+import ImagePopOut from './ImagePopout.jsx';
 
 const ImagesContainer = styled.div`
   margin: 5px 0;
