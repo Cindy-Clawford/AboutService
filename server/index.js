@@ -18,6 +18,42 @@ app.get('/api/hotel/:hotelId', (req, res) => {
     })
 })
 
+// === Post (create) ===
+app.post('/api/hotel/:hotelId', (req, res) => {
+  req.body;
+  databaseMethods.Hotels.create({hotel_name: req.params.hotelId})
+    .exec((err, result) => {
+      if (err) {
+        throw err;
+      }
+      res.send(result)
+    })
+})
+
+// === Put (update) ===
+app.put('/api/hotel/:hotelId', (req, res) => {
+  req.body;
+  databaseMethods.Hotels.create({hotel_name: req.params.hotelId})
+    .exec((err, result) => {
+      if (err) {
+        throw err;
+      }
+      res.send(result)
+    })
+})
+
+// === Delete ===
+app.delete('/api/hotel/:hotelId', (req, res) => {
+  req.body;
+  databaseMethods.Hotels.create({hotel_name: req.params.hotelId})
+    .exec((err, result) => {
+      if (err) {
+        throw err;
+      }
+      res.send(result)
+    })
+})
+
 app.get('/:hotelName', (req, res) => {
   const fileName = 'index.html';
   const options = {
@@ -33,6 +69,7 @@ app.get('/:hotelName', (req, res) => {
     }
   })
 })
+
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
