@@ -44,8 +44,7 @@ app.put('/api/hotel/:hotelId', (req, res) => {
 
 // === Delete ===
 app.delete('/api/hotel/:hotelId', (req, res) => {
-  req.body;
-  databaseMethods.Hotels.create({hotel_name: req.params.hotelId})
+  databaseMethods.Hotels.deleteOne({hotel_name: req.params.hotelId})
     .exec((err, result) => {
       if (err) {
         throw err;
