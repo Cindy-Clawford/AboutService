@@ -18,9 +18,11 @@ app.get('/api/hotel/:hotelId', (req, res) => {
     })
 })
 
-// === Post (create) ===
+// comment added to notify that we have not defined what we are needing to create or update
+// req.body would contain the items needing to be added to the db but we aren't needing to submit anything!
+
 app.post('/api/hotel/:hotelId', (req, res) => {
-  req.body;
+  // const itemToCreate = req.body;
   databaseMethods.Hotels.create({hotel_name: req.params.hotelId})
     .exec((err, result) => {
       if (err) {
@@ -30,10 +32,9 @@ app.post('/api/hotel/:hotelId', (req, res) => {
     })
 })
 
-// === Put (update) ===
 app.put('/api/hotel/:hotelId', (req, res) => {
-  req.body;
-  databaseMethods.Hotels.create({hotel_name: req.params.hotelId})
+  // const itemToUpdate = req.body;
+  databaseMethods.Hotels.updateOne({hotel_name: req.params.hotelId})
     .exec((err, result) => {
       if (err) {
         throw err;
