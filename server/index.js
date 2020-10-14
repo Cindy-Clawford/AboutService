@@ -23,6 +23,8 @@ app.get('/api/hotel/:hotelId', (req, res) => {
 
 app.post('/api/hotel/:hotelId', (req, res) => {
   // const itemToCreate = req.body;
+  call generic create funciton
+
   databaseMethods.Hotels.create({hotel_name: req.params.hotelId})
     .exec((err, result) => {
       if (err) {
