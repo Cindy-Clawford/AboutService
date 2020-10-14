@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const databaseMethods = require('../database/Hotels');
-const mongoCRUD = require('./query-db.js');
+const mongoCRUD = require('./mongodb-query.js');
 
 const app = express ();
 const port = 4001;
