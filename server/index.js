@@ -13,7 +13,7 @@ app.get('/api/hotel/:hotelId', (req, res) => {
   let filter = {hotel_name: req.params.hotelId}
   let genericGet = mongoCRUD.mongoGet(filter);
   genericGet.then((result) => {
-    res.send(result)
+    res.send(result);
   })
 })
 
@@ -21,7 +21,7 @@ app.post('/api/hotel/:hotelId', (req, res) => {
   let newEntry = req.body;
   let genericPost = mongoCRUD.mongoPost(newEntry);
   genericGet.then((result) => {
-    res.send(result)
+    res.send(result);
   })
 })
 

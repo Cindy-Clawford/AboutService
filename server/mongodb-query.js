@@ -1,7 +1,5 @@
 const databaseMethods = require('../database/Hotels');
 
-// Generic requests
-
 function mongoGet(filter) {
   return new Promise(function(resolve, reject) {
     databaseMethods.Hotels.findOne(filter)
