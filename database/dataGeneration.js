@@ -122,9 +122,9 @@ let fakeHotels = () => {
     for(var j = 0; j < 8; j++) {
       var randomPhoto = faker.random.number({
         min: 1,
-        max: 50
+        max: 25
       })
-      oneHotel.images.push(`https://tripadcobaabout.s3.us-east-2.amazonaws.com/image${randomPhoto}.jpg`)
+      oneHotel.images.push(`https://sdcabout.s3.us-west-1.amazonaws.com/image${randomPhoto}.jpg`)
     }
 
     oneHotel.languages_spoken = '';
@@ -151,5 +151,6 @@ let fakeHotels = () => {
 }
 
 var dataGeneration = fakeHotels();
+console.log(dataGeneration, "Generated Data");
 
-module.exports = dataGeneration;
+module.exports.dataGeneration = dataGeneration;

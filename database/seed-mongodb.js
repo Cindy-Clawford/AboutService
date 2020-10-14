@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const databaseMethods = require('./Hotels');
+const dataGeneration = require('./dataGeneration');
 
-
+console.log(dataGeneration, "Seeded Data")
 
 const seedDatabase = function (hotels) {
   databaseMethods.Hotels.create(hotels, (err) => {
@@ -13,6 +14,6 @@ const seedDatabase = function (hotels) {
   })
 };
 
-seedDatabase(fakeHotels())
+seedDatabase(dataGeneration)
 
 module.exports = seedDatabase;
