@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const databaseMethods = require('../database/Hotels');
+const mongoCRUD = require('./query-db.js');
 
 const app = express ();
 const port = 4001;
@@ -9,51 +10,28 @@ const port = 4001;
 app.use(express.static(path.join(__dirname, '../dist')));
 
 app.get('/api/hotel/:hotelId', (req, res) => {
-  databaseMethods.Hotels.findOne({hotel_name: req.params.hotelId})
-    .exec((err, result) => {
-      if (err) {
-        throw err;
-      }
-      res.send(result)
-    })
+  let filter = {hotel_name: req.params.hotelId}
+  let getResponse = mongoCRUD.mongoGet(filter);
+  res.send(getResponse);
 })
 
-// comment added to notify that we have not defined what we are needing to create or update
-// req.body would contain the items needing to be added to the db but we aren't needing to submit anything!
-
 app.post('/api/hotel/:hotelId', (req, res) => {
-  // const itemToCreate = req.body;
-  call generic create funciton
-
-  databaseMethods.Hotels.create({hotel_name: req.params.hotelId})
-    .exec((err, result) => {
-      if (err) {
-        throw err;
-      }
-      res.send(result)
-    })
+  let newEntry = req.body;
+  let postResponse = mongoCRUD.mongoPost(newEntry);
+  res.send(postResponse);
 })
 
 app.put('/api/hotel/:hotelId', (req, res) => {
-  // const itemToUpdate = req.body;
-  databaseMethods.Hotels.updateOne({hotel_name: req.params.hotelId})
-    .exec((err, result) => {
-      if (err) {
-        throw err;
-      }
-      res.send(result)
-    })
+  let update = req.body;
+  let filter = {hotel_name: req.params.hotelId}
+  let putResponse = mongoCRUD.mongoPut(filter, update);
+  res.send(putResponse);
 })
 
-// === Delete ===
 app.delete('/api/hotel/:hotelId', (req, res) => {
-  databaseMethods.Hotels.deleteOne({hotel_name: req.params.hotelId})
-    .exec((err, result) => {
-      if (err) {
-        throw err;
-      }
-      res.send(result)
-    })
+  let filter = {hotel_name: req.params.hotelId}
+  let deleteResponse = mongoCRUD.mongoDelete(filter);
+  res.send(deleteResponse);
 })
 
 app.get('/:hotelName', (req, res) => {
