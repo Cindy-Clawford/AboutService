@@ -1,6 +1,4 @@
 const faker = require('faker');
-const mongoose = require('mongoose');
-const databaseMethods = require('./Hotels');
 const descriptionGenerator = require('./descriptionGenerator.js');
 
 let fakeHotels = () => {
@@ -152,17 +150,6 @@ let fakeHotels = () => {
   return sampleHotels;
 }
 
+var dataGeneration = fakeHotels();
 
-const seedDatabase = function (hotels) {
-  databaseMethods.Hotels.create(hotels, (err) => {
-    if (err) {
-      return err;
-    } else {
-      mongoose.connection.close();
-    }
-  })
-};
-
-seedDatabase(fakeHotels())
-
-module.exports = seedDatabase;
+module.exports = dataGeneration;
