@@ -11,27 +11,35 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 app.get('/api/hotel/:hotelId', (req, res) => {
   let filter = {hotel_name: req.params.hotelId}
-  let getResponse = mongoCRUD.mongoGet(filter);
-  res.send(getResponse);
+  let genericGet = mongoCRUD.mongoGet(filter);
+  genericGet.then((result) => {
+    res.send(result)
+  })
 })
 
 app.post('/api/hotel/:hotelId', (req, res) => {
   let newEntry = req.body;
-  let postResponse = mongoCRUD.mongoPost(newEntry);
-  res.send(postResponse);
+  let genericPost = mongoCRUD.mongoPost(newEntry);
+  genericGet.then((result) => {
+    res.send(result)
+  })
 })
 
 app.put('/api/hotel/:hotelId', (req, res) => {
   let update = req.body;
   let filter = {hotel_name: req.params.hotelId}
-  let putResponse = mongoCRUD.mongoPut(filter, update);
-  res.send(putResponse);
+  let genericPut = mongoCRUD.mongoPut(filter, update);
+  genericPut.then((result) => {
+    res.send(result);
+  })
 })
 
 app.delete('/api/hotel/:hotelId', (req, res) => {
   let filter = {hotel_name: req.params.hotelId}
-  let deleteResponse = mongoCRUD.mongoDelete(filter);
-  res.send(deleteResponse);
+  let genericDelete = mongoCRUD.mongoDelete(filter);
+  genericDelete.then((result) => {
+    res.send(result);
+  })
 })
 
 app.get('/:hotelName', (req, res) => {

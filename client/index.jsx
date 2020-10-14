@@ -92,7 +92,6 @@ class AboutApp extends React.Component {
   componentDidMount(){
     var hotelName = window.location.pathname.slice(1);
     hotelName = hotelName === '' ? 'hotel0' : hotelName
-    console.log(hotelName)
     $.ajax({
       type: 'GET',
       url: `/api/hotel/${hotelName}`,
