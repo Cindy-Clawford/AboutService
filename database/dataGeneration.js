@@ -146,11 +146,9 @@ let fakeHotels = () => {
     sampleHotels.push(oneHotel);
   }
 
-
   return sampleHotels;
 }
 
 const dataGeneration = fakeHotels();
-console.log(dataGeneration, "Above is the Generated Data");
 
 module.exports = dataGeneration;
