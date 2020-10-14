@@ -122,7 +122,7 @@ let fakeHotels = () => {
     for(var j = 0; j < 8; j++) {
       var randomPhoto = faker.random.number({
         min: 1,
-        max: 50
+        max: 60
       })
       oneHotel.images.push(`https://sdcabout.s3.us-west-1.amazonaws.com/image${randomPhoto}.jpg`)
     }
@@ -151,6 +151,6 @@ let fakeHotels = () => {
 }
 
 const dataGeneration = fakeHotels();
-console.log(dataGeneration, "Generated Data");
+console.log(dataGeneration, "Above is the Generated Data");
 
-module.exports.dataGeneration = dataGeneration;
+module.exports = dataGeneration;
