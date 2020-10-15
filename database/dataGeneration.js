@@ -1,9 +1,9 @@
 const faker = require('faker');
 const descriptionGenerator = require('./descriptionGenerator.js');
 
-let fakeHotels = () => {
+let fakeHotels = (quantity) => {
   var sampleHotels = []
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < quantity; i++) {
     var oneHotel = {
       hotel_name: `hotel${i}`,
       description: descriptionGenerator(),
@@ -149,6 +149,9 @@ let fakeHotels = () => {
   return sampleHotels;
 }
 
-const dataGeneration = fakeHotels();
+const numOfRecords = 1000
+
+const dataGeneration = fakeHotels(numOfRecords);
+console.log('NUMBER OF ENTRIES IN DATA: ', numOfRecords)
 
 module.exports = dataGeneration;
