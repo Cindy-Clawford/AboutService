@@ -1,11 +1,9 @@
 const faker = require('faker');
-const mongoose = require('mongoose');
-const databaseMethods = require('./Hotels');
 const descriptionGenerator = require('./descriptionGenerator.js');
 
-let fakeHotels = () => {
+let fakeHotels = (quantity) => {
   var sampleHotels = []
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < quantity; i++) {
     var oneHotel = {
       hotel_name: `hotel${i}`,
       description: descriptionGenerator(),
@@ -124,9 +122,9 @@ let fakeHotels = () => {
     for(var j = 0; j < 8; j++) {
       var randomPhoto = faker.random.number({
         min: 1,
-        max: 50
+        max: 60
       })
-      oneHotel.images.push(`https://tripadcobaabout.s3.us-east-2.amazonaws.com/image${randomPhoto}.jpg`)
+      oneHotel.images.push(`https://sdcabout.s3.us-west-1.amazonaws.com/image${randomPhoto}.jpg`)
     }
 
     oneHotel.languages_spoken = '';
@@ -148,21 +146,12 @@ let fakeHotels = () => {
     sampleHotels.push(oneHotel);
   }
 
-
   return sampleHotels;
 }
 
+const numOfRecords = 1000
 
-const seedDatabase = function (hotels) {
-  databaseMethods.Hotels.create(hotels, (err) => {
-    if (err) {
-      return err;
-    } else {
-      mongoose.connection.close();
-    }
-  })
-};
+const dataGeneration = fakeHotels(numOfRecords);
+console.log('NUMBER OF ENTRIES IN DATA: ', numOfRecords)
 
-seedDatabase(fakeHotels())
-
-module.exports = seedDatabase;
+module.exports = dataGeneration;
