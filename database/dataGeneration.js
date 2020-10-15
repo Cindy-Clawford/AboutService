@@ -149,7 +149,7 @@ let fakeHotels = (quantity) => {
   return sampleHotels;
 }
 
-const numOfRecords = 1000
+const numOfRecords = 100
 
 const dataGeneration = fakeHotels(numOfRecords);
 console.log('NUMBER OF ENTRIES IN DATA: ', numOfRecords)
