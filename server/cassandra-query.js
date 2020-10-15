@@ -1,54 +1,41 @@
 const databaseMethods = require('../database/Hotels');
 
-// Writing this note to indicate that this page will reference the CRUD operations for Cassandra data.
-// Currently the setup is for mongodb but the premise, with promises and async functionality, is needed
-
 function cassandraGet(filter) {
   return new Promise(function(resolve, reject) {
-    databaseMethods.Hotels.findOne(filter)
-      .exec((err, result) => {
-        if (err) {
-          reject(err);
-        }
-        resolve(result);
-      })
-    });
+    // comment here to indicate the database below needs to be properly named.
+    const query = 'SELECT * FROM hotels WHERE hotelId = ?'
+    database.execute(query, [filter.hotel_name])
+      .then(result => resolve(result))
+      .catch(err => reject(err.stack))
+  });
 }
 
 function cassandraPost(newEntry) {
   return new Promise(function(resolve, reject) {
-  databaseMethods.Hotels.create(newEntry)
-    .exec((err, result) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(result);
-    })
-  })
+    // comment here to indicate the database below needs to be properly named and the data format for newEntry needs to be reformatted
+    const query = 'INSERT INTO hotels VALUES ? RETURNING *'
+    database.execute(query, [newEntry])
+      .then(result => resolve(result))
+      .catch(err => reject(err.stack))
+  });
 }
 
 function cassandraPut(filter, update) {
   return new Promise(function(resolve, reject) {
-  databaseMethods.Hotels.updateOne(filter, update)
-    .exec((err, result) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(result);
-    })
-  })
+    const query = 'UPDATE hotels SET * WHERE key=? RETURNING *'
+    database.execute(query, [update])
+      .then(result => resolve(result))
+      .catch(err => reject(err.stack))
+  });
 }
 
 function cassandraDelete(filter) {
   return new Promise(function(resolve, reject) {
-  databaseMethods.Hotels.deleteOne(filter)
-    .exec((err, result) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(result);
-    })
-  })
+    const query = 'DELETE hotels WHERE ? RETURNING *'
+    database.execute(query, [filter])
+      .then(result => resolve(result))
+      .catch(err => reject(err.stack))
+  });
 }
 
 module.exports.cassandraGet = cassandraGet;

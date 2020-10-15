@@ -20,6 +20,7 @@ const seedDatabase = function (hotels) {
 console.log(typeof dataGeneration)
 console.log(Array.isArray(dataGeneration))
 // so if dataGeneration is an Array, then why is that console log appearing when I run this?
+console.log(dataGeneration)
 
 seedDatabase(dataGeneration);
 
