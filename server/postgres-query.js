@@ -1,5 +1,5 @@
 
-const databaseMethods = require('../database/Hotels');
+const databaseMethods = require('../database/HotelsPostgres');
 
 function postgresGet(filter) {
   return new Promise(function(resolve, reject) {

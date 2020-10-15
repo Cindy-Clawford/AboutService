@@ -1,5 +1,5 @@
 
-
+// future constants will be defined differently schema wise
 const hotelSchema = new mongoose.Schema({
   hotel_name: String,
   description: String,
