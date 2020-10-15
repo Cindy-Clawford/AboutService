@@ -32,6 +32,7 @@
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.7",
     "nodemon": "^2.0.4",
+    "pg": "^8.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
