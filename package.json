@@ -11,7 +11,8 @@
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
     "test": "jest --detectOpenHandles",
-    "seed": "node database/seed.js"
+    "generate-data": "node database/dataGeneration.js",
+    "seed-mongo": "node database/seed-mongodb.js"
   },
   "repository": {
     "type": "git",
