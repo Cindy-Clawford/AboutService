@@ -1,9 +1,5 @@
 
-
 const databaseMethods = require('../database/Hotels');
-
-// Writing this note to indicate that this page will reference the CRUD operations for PostgreSQL data.
-// Currently the setup is for mongodb but the premise, with promises and async functionality, is needed
 
 function postgresGet(filter) {
   return new Promise(function(resolve, reject) {
