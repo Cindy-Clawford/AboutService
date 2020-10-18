@@ -1,0 +1,14 @@
+version: 2.1
+jobs:
+  build:
+    steps:
+      - checkout
+      - run:
+        name: Build Webpack
+        command: npm run build
+      - run:
+        name: Start Server
+        command: npm start
+      - run:
+        name: Run Unit Tests
+        command: npm test

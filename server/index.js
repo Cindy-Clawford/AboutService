@@ -1,0 +1,64 @@
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const databaseMethods = require('../database/Hotels');
+const mongoCRUD = require('./mongodb-query.js');
+
+const app = express ();
+const port = 4001;
+
+app.use(express.static(path.join(__dirname, '../dist')));
+
+app.get('/api/hotel/:hotelId', (req, res) => {
+  let filter = {hotel_name: req.params.hotelId}
+  let genericGet = mongoCRUD.mongoGet(filter);
+  genericGet.then((result) => {
+    res.send(result);
+  })
+})
+
+app.post('/api/hotel/:hotelId', (req, res) => {
+  let newEntry = req.body;
+  let genericPost = mongoCRUD.mongoPost(newEntry);
+  genericGet.then((result) => {
+    res.send(result);
+  })
+})
+
+app.put('/api/hotel/:hotelId', (req, res) => {
+  let update = req.body;
+  let filter = {hotel_name: req.params.hotelId}
+  let genericPut = mongoCRUD.mongoPut(filter, update);
+  genericPut.then((result) => {
+    res.send(result);
+  })
+})
+
+app.delete('/api/hotel/:hotelId', (req, res) => {
+  let filter = {hotel_name: req.params.hotelId}
+  let genericDelete = mongoCRUD.mongoDelete(filter);
+  genericDelete.then((result) => {
+    res.send(result);
+  })
+})
+
+app.get('/:hotelName', (req, res) => {
+  const fileName = 'index.html';
+  const options = {
+    root: path.join(__dirname, '../dist')
+  };
+  res.sendFile(fileName, options, (err) => {
+    if(err) {
+      console.error(err);
+      return;
+    } else {
+      console.log('success')
+      return;
+    }
+  })
+})
+
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`)
+})
