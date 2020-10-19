@@ -2,10 +2,10 @@ DROP DATABASE IF EXISTS hotel;
 
 CREATE DATABASE hotel;
 
--- Make sure we're using our `about` database
+-- Make sure we're using our `hotel` database
 \c hotel;
 
--- We can create our user table
+-- We can create our about table
 CREATE TABLE IF NOT EXISTS about (
   hotel_name VARCHAR PRIMARY KEY,
   description VARCHAR,
@@ -88,4 +88,4 @@ CREATE TABLE IF NOT EXISTS about (
   languages_spoken VARCHAR
 );
 
--- `description,rank,"Pool","Safe"`
+-- how can this be "run" within a seeding script? need to initiate this in npm run
