@@ -1,7 +1,7 @@
 const fs = require('fs');
 const faker = require('faker');
 const descriptionGenerator = require('./descriptionGenerator.js');
-const numOfRecords = 10000000;
+const numOfRecords = 10;
 
 const dataTitles = `hotel_name,description,overall_rating,number_of_reviews,rank,location_ranking,cleanliness_rating,service_rating,value_rating,"Valet parking","Pool","Free breakfast","Beach","Babysitting","Free internet","Fitness center","Entertainment","Business center","Spa","Diving","Wifi","Hot tub","Kids club","Fishing","Airport transportation","Banquet room","Couples massage","Taxi service","Steam room","Salon","Gift shop","ATM on site","Dry cleaning","24-hour front desk","Karoake","Aerobics","Swimup bar","Snack bar","Meeting rooms","Tennis courts","Free parking","Breakfast buffet","Shuttle bus service","24-hour security","Concierge","Currency exchange","Non-smoking hotel","Sun lounge/beach chairs","Doorperson","Shops","Air conditioning","Room service","Flatscreen TV","Safe","Wake-up service","Housekeeping","Iron","Balcony","Private beach","Additional bathroom","Interconnected rooms available","Kitchenette","Laptop safe","VIP room facilities","Refrigerator","Private balcony","Sofa","DVD/CD player","Microwave","Ocean View","Partial Ocean View","Suites","Family rooms","Non-smoking rooms",hotel_class,hotel_style,hotel_website,images,languages_spoken`
 
