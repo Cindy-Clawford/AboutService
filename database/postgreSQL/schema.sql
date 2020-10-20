@@ -2,22 +2,23 @@ DROP DATABASE IF EXISTS hotel;
 
 CREATE DATABASE hotel;
 
--- Make sure we're using our `hotel` database
+-- thanks susannah
+-- \c means connect to the db that follows, ie hotel
 \c hotel;
 
 -- We can create our about table
 CREATE TABLE IF NOT EXISTS about (
-  hotel_name VARCHAR PRIMARY KEY,
-  description VARCHAR,
-  overall_rating NUMERIC(5,2),
+  hotel_name VARCHAR(30) PRIMARY KEY,
+  _description VARCHAR(1200),
+  overall_rating DECIMAL,
   number_of_reviews INTEGER,
   rank INTEGER,
-  location_ranking NUMERIC(5,2),
-  cleanliness_rating NUMERIC(5,2),
-  service_rating NUMERIC(5,2),
-  value_rating NUMERIC(5,2),
+  location_ranking DECIMAL,
+  cleanliness_rating DECIMAL,
+  service_rating DECIMAL,
+  value_rating DECIMAL,
   valet_parking BOOLEAN,
-  pool BOOLEAN,
+  swimming_pool BOOLEAN,
   free_breakfast BOOLEAN,
   beach BOOLEAN,
   babysitting BOOLEAN,
@@ -60,7 +61,7 @@ CREATE TABLE IF NOT EXISTS about (
   air_conditioning BOOLEAN,
   room_service BOOLEAN,
   flatscreen_tv BOOLEAN,
-  safe BOOLEAN,
+  _safe BOOLEAN,
   wake_up_service BOOLEAN,
   housekeeping BOOLEAN,
   iron BOOLEAN,
@@ -82,10 +83,10 @@ CREATE TABLE IF NOT EXISTS about (
   family_rooms BOOLEAN,
   non_smoking_rooms BOOLEAN,
   hotel_class INTEGER,
-  hotel_style VARCHAR,
-  hotel_website VARCHAR,
-  images VARCHAR,
-  languages_spoken VARCHAR
+  hotel_style VARCHAR(35),
+  hotel_website VARCHAR(50),
+  images VARCHAR(500),
+  languages_spoken VARCHAR(100)
 );
 
 -- how can this be "run" within a seeding script? need to initiate this in npm run
