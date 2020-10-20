@@ -13,6 +13,7 @@
     "test": "jest --detectOpenHandles",
     "generate-data": "node database/legacyDataGeneration.js",
     "generate-datafile": "node --max_old_space_size=16000 database/dataGeneration.js",
+    "seed:postgres": "node ./database/postgreSQL/HotelsPostgres.js",
     "seed-mongo": "node database/seed-mongodb.js"
   },
   "repository": {
