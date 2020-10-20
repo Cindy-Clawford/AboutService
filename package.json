@@ -11,8 +11,9 @@
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
     "test": "jest --detectOpenHandles",
-    "generate-data": "node database/legacyDataGeneration.js",
-    "generate-datafile": "node --max_old_space_size=16000 database/dataGeneration.js",
+    "generate:legacydata": "node database/legacyDataGeneration.js",
+    "generate:data": "node --max_old_space_size=16000 database/dataGeneration.js",
+    "seed:postgres": "node ./database/postgreSQL/HotelsPostgres.js",
     "seed-mongo": "node database/seed-mongodb.js"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "mongoose": "^5.10.7",
     "nodemon": "^2.0.4",
     "pg": "^8.4.1",
+    "pg-copy-streams": "^5.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
@@ -49,7 +51,6 @@
     "babel-loader": "^8.1.0",
     "jest": "^26.4.2",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
     "@shelf/jest-mongodb": "^1.2.3"
   }
 }
