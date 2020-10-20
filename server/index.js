@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const databaseMethods = require('../database/Hotels');
 const mongoCRUD = require('./mongodb-query.js');
 const postgresCRUD = require('./postgres-query.js');
 
