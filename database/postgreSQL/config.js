@@ -1,0 +1,3 @@
+password = ''
+
+exports.password = password
