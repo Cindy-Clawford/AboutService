@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS about (
   free_parking BOOLEAN,
   breakfast_buffet BOOLEAN,
   shuttle_bus_service BOOLEAN,
-  allday_hour_security BOOLEAN,
+  allday_security BOOLEAN,
   concierge BOOLEAN,
   currency_exchange BOOLEAN,
   non_smoking_hotel BOOLEAN,

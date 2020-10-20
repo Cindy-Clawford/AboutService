@@ -1,4 +1,4 @@
 node_modules
 /dist/bundle.js
 datafile.csv
-/database/postgreSQL/pgConfig.js
+/database/postgreSQL/config.js
