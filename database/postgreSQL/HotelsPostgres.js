@@ -2,7 +2,6 @@ const fs = require('fs')
 const path = require('path')
 const { Pool, Client } = require('pg')
 const config = require('./config.js')
-// const copyFrom = require('pg-copy-streams').from;
 
 const pool = new Pool({
   host: 'localhost',
@@ -27,5 +26,3 @@ pool.connect((err, client, release) => {
     console.log(result.rows)
   })
 });
-
-
