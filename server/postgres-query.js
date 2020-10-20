@@ -1,4 +1,3 @@
-
 const fs = require('fs')
 const path = require('path')
 const { Pool, Client } = require('pg')
@@ -153,7 +152,4 @@ module.exports.postgresGet = postgresGet;
 module.exports.postgresPost = postgresPost;
 module.exports.postgresPut = postgresPut;
 module.exports.postgresDelete = postgresDelete;
-
-
-
 
