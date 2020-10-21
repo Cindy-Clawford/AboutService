@@ -1,18 +1,18 @@
-DROP DATABASE IF EXISTS hotel;
+DROP KEYSPACE IF EXISTS hotel;
 
-CREATE DATABASE hotel;
+CREATE KEYSPACE hotel
+  WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1}
 
--- thanks susannah
 -- \c means connect to the db that follows, ie hotel
-\c hotel;
+USE hotel;
 
 -- We can create our about table
 CREATE TABLE IF NOT EXISTS about (
-  hotel_name varchar PRIMARY KEY,
-  _description varchar,
+  hotel_name text PRIMARY KEY,
+  _description text,
   overall_rating decimal,
   number_of_reviews int,
-  rank INT,
+  rank int,
   location_ranking decimal,
   cleanliness_rating decimal,
   service_rating decimal,
@@ -82,11 +82,11 @@ CREATE TABLE IF NOT EXISTS about (
   suites boolean,
   family_rooms boolean,
   non_smoking_rooms boolean,
-  hotel_class INT,
-  hotel_style varchar,
-  hotel_website varchar,
-  images varchar,
-  languages_spoken varchar
+  hotel_class int,
+  hotel_style text,
+  hotel_website text,
+  images text,
+  languages_spoken text
 );
 
 -- how can this be "run" within a seeding script? need to initiate this in npm run
