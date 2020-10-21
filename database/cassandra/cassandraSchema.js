@@ -1,11 +1,13 @@
+const cassandra = require('cassandra-driver')
+// Current note indicates all actions done below were performed in cqlsh CLI, not via Node.js
+
 DROP KEYSPACE IF EXISTS hotel;
 
 CREATE KEYSPACE hotel WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
 
--- \c means connect to the db that follows, ie hotel
 USE hotel;
 
--- We can create our about table
+// We can create our about table
 CREATE TABLE IF NOT EXISTS about (
   hotel_name text PRIMARY KEY,
   description text,
@@ -88,4 +90,4 @@ CREATE TABLE IF NOT EXISTS about (
   languages_spoken text
 );
 
--- how can this be "run" within a seeding script? need to initiate this in npm run
+// how can this be "run" within a seeding script? need to initiate this in npm run
