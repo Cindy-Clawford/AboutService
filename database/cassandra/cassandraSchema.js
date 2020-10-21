@@ -10,7 +10,7 @@ USE hotel;
 // We can create our about table
 CREATE TABLE IF NOT EXISTS about (
   hotel_name text PRIMARY KEY,
-  description text,
+  hotel_description text,
   overall_rating decimal,
   number_of_reviews int,
   rank int,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS about (
   air_conditioning boolean,
   room_service boolean,
   flatscreen_tv boolean,
-  safe boolean,
+  wall_safe boolean,
   wake_up_service boolean,
   housekeeping boolean,
   iron boolean,
