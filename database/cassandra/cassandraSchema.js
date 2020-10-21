@@ -1,7 +1,6 @@
 DROP KEYSPACE IF EXISTS hotel;
 
-CREATE KEYSPACE hotel
-  WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1}
+CREATE KEYSPACE hotel WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
 
 -- \c means connect to the db that follows, ie hotel
 USE hotel;
@@ -9,7 +8,7 @@ USE hotel;
 -- We can create our about table
 CREATE TABLE IF NOT EXISTS about (
   hotel_name text PRIMARY KEY,
-  _description text,
+  description text,
   overall_rating decimal,
   number_of_reviews int,
   rank int,
@@ -61,7 +60,7 @@ CREATE TABLE IF NOT EXISTS about (
   air_conditioning boolean,
   room_service boolean,
   flatscreen_tv boolean,
-  _safe boolean,
+  safe boolean,
   wake_up_service boolean,
   housekeeping boolean,
   iron boolean,
