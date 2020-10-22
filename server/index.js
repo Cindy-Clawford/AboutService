@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, '../dist')));
 app.get('/api/hotel/:hotelId', (req, res) => {
   console.time()
   let filter = {hotel_name: req.params.hotelId}
-  let genericGet = cassandraCRUD.cassandraGet(filter);
+  let genericGet = postgresCRUD.postgresGet(filter);
   genericGet.then((result) => {
     res.send(result);
     console.timeEnd()
