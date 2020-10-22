@@ -56,6 +56,7 @@ class Description extends React.Component {
     this.setState({ readMore: true })
   }
 
+
   render() {
     let paragraphs = this.props.description.split("\n");
     if (!this.state.overflow) {

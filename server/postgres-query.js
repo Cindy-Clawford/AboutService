@@ -27,7 +27,7 @@ function postgresGet(filter) {
         const result = results.rows[0]
         let formattedResult = {};
         formattedResult.hotel_name = result.hotel_name;
-        formattedResult.description = result._description;
+        formattedResult.description = result.hotel_description;
         formattedResult.overall_rating = result.overall_rating;
         formattedResult.number_of_reviews = result.number_of_reviews;
         formattedResult.rank = result.rank;
@@ -82,7 +82,7 @@ function postgresGet(filter) {
           "Air conditioning": result.air_conditioning,
           "Room service": result.room_service,
           "Flatscreen TV": result.flatscreen_tv,
-          "Safe": result._safe,
+          "Safe": result.wall_safe,
           "Wake-up service": result.wake_up_service,
           "Housekeeping": result.housekeeping,
           "Iron": result.iron,
