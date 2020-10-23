@@ -1,5 +1,3 @@
 node_modules
 /dist/bundle.js
 datafile.csv
-/database/postgreSQL/config.js
-newrelic.js
