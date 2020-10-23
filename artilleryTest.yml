@@ -21,6 +21,6 @@ scenarios:
         - get:
             url: "/{{ $loopElement }}"
       over:
-        - hotel9000
-        - hotel90000
-        - hotel9000000
+        - hotel9900
+        - hotel99000
+        - hotel9900000
