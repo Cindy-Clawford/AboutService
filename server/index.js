@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const databaseMethods = require('../database/Hotels');
 const mongoCRUD = require('./mongodb-query.js');
 const postgresCRUD = require('./postgres-query.js');
+require('newrelic');
 
 const app = express ();
 const port = 4001;
