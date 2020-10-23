@@ -57,7 +57,7 @@ class Description extends React.Component {
   }
 
   render() {
-    let paragraphs = this.props.description.split("\n");
+    let paragraphs = this.props.description.split('\n');
     if (!this.state.overflow) {
       return (
         <div>

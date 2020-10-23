@@ -9,7 +9,7 @@ CREATE DATABASE hotel;
 -- We can create our about table
 CREATE TABLE IF NOT EXISTS about (
   hotel_name VARCHAR(30) PRIMARY KEY,
-  _description VARCHAR(3000),
+  hotel_description VARCHAR(3000),
   overall_rating DECIMAL,
   number_of_reviews INTEGER,
   rank INTEGER,
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS about (
   air_conditioning BOOLEAN,
   room_service BOOLEAN,
   flatscreen_tv BOOLEAN,
-  _safe BOOLEAN,
+  wall_safe BOOLEAN,
   wake_up_service BOOLEAN,
   housekeeping BOOLEAN,
   iron BOOLEAN,

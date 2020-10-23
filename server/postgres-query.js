@@ -28,7 +28,7 @@ function postgresGet(filter) {
         const result = results.rows[0]
         let formattedResult = {};
         formattedResult.hotel_name = result.hotel_name;
-        formattedResult.description = result._description;
+        formattedResult.description = result.hotel_description;
         formattedResult.overall_rating = result.overall_rating;
         formattedResult.number_of_reviews = result.number_of_reviews;
         formattedResult.rank = result.rank;
