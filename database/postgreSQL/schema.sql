@@ -2,8 +2,7 @@ DROP DATABASE IF EXISTS hotel;
 
 CREATE DATABASE hotel;
 
--- thanks susannah
--- \c means connect to the db that follows, ie hotel
+-- \c to connect to the db
 \c hotel;
 
 -- We can create our about table
