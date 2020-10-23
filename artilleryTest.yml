@@ -4,12 +4,15 @@ config:
     - duration: 60
       arrivalRate: 10
       name: "10 arrivals a sec for 1 min"
-    - duration: 45
+    - duration: 60
       arrivalRate: 100
-      name: "100 arrivals a sec for 45 sec"
-    - duration: 30
+      name: "100 arrivals a sec for 1 min"
+    - duration: 60
       arrivalRate: 1000
-      name: "1000 arrivals a sec for 30 sec"
+      name: "1000 arrivals a sec for 1 min"
+    - duration: 60
+      arrivalRate: 100
+      name: "100 arrivals a sec for 1 min"
 scenarios:
   - flow:
     - loop:
