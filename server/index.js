@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoCRUD = require('./mongodb-query.js');
 const postgresCRUD = require('./postgres-query.js');
 const cassandraCRUD = require('./cassandra-query.js');
-require('newrelic');
+// require('newrelic');
 
 
 const app = express ();
