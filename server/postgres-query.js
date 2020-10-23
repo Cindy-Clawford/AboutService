@@ -1,7 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 const { Pool, Client } = require('pg')
-const config = require('../database/postgreSQL/config.js')
 
 const pool = new Pool({
   host: '54.193.183.224',
