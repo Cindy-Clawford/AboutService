@@ -1,4 +1,3 @@
-
 const fs = require('fs')
 const path = require('path')
 const { Pool, Client } = require('pg')
@@ -83,7 +82,7 @@ function postgresGet(filter) {
           "Air conditioning": result.air_conditioning,
           "Room service": result.room_service,
           "Flatscreen TV": result.flatscreen_tv,
-          "Safe": result._safe,
+          "Safe": result.wall_safe,
           "Wake-up service": result.wake_up_service,
           "Housekeeping": result.housekeeping,
           "Iron": result.iron,
@@ -153,7 +152,4 @@ module.exports.postgresGet = postgresGet;
 module.exports.postgresPost = postgresPost;
 module.exports.postgresPut = postgresPut;
 module.exports.postgresDelete = postgresDelete;
-
-
-
 
