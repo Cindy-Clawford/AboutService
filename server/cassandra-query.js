@@ -120,8 +120,10 @@ function cassandraPost(newEntry) {
 }
 
 function cassandraPut(filter, update) {
+  // SET col1 = val1, col2 = val2, etc
+  // filter should be hotel number
   return new Promise(function(resolve, reject) {
-    const query = 'UPDATE hotels SET * WHERE key=? RETURNING *'
+    const query = `UPDATE about SET ${update} WHERE hotel_name IN (${filter})`
     client.execute(query, [update])
       .then(result => resolve(result))
       .catch(err => reject(err.stack))
