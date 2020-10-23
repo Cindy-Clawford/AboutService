@@ -1,0 +1,23 @@
+config:
+  target: http://localhost:4001
+  phases:
+    - duration: 60
+      arrivalRate: 10
+      name: "10 arrivals a sec for 1 min"
+    - duration: 45
+      arrivalRate: 100
+      name: "100 arrivals a sec for 45 sec"
+    - duration: 30
+      arrivalRate: 1000
+      name: "1000 arrivals a sec for 30 sec"
+scenarios:
+  - flow:
+    - loop:
+        - get:
+            url: "/"
+        - get:
+            url: "/{{ $loopElement }}"
+      over:
+        - hotel1000
+        - hotel10000
+        - hotel100000
