@@ -28,7 +28,7 @@ exports.config = {
      *
      * @env NEW_RELIC_DISTRIBUTED_TRACING_ENABLED
      */
-    enabled: true
+    enabled: false
   },
   logging: {
     /**
@@ -43,7 +43,7 @@ exports.config = {
    * will be captured for all traces, unless otherwise specified in a destination's
    * attributes include/exclude lists.
    */
-  allow_all_headers: true,
+  allow_all_headers: false,
   attributes: {
     /**
      * Prefix of attributes to exclude from all destinations. Allows * as wildcard
