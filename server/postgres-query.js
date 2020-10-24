@@ -3,7 +3,7 @@ const path = require('path')
 const { Pool, Client } = require('pg')
 
 const pool = new Pool({
-  host: '54.193.183.224',
+  host: '54.193.237.154',
   user: 'akilduff',
   database: 'hotel',
   password: '',
@@ -131,7 +131,7 @@ function postgresPut(filter, update) {
   return new Promise(function(resolve, reject) {
     // comment here to indicate the database below needs to be properly named and the data format for update needs to be reformatted
     database
-      .query('INSERT INTO about($1) VALUES($2) RETURNING *', [filtern.hotel_name, update])
+      .query('INSERT INTO about($1) VALUES($2) RETURNING *', [filter.hotel_name, update])
       .then(result => resolve(result))
       .catch(err => reject(err.stack))
   });
