@@ -3,7 +3,7 @@ const path = require('path')
 const { Pool, Client } = require('pg')
 
 const pool = new Pool({
-  host: '54.151.118.173' ,
+  host: '54.176.200.249' ,
   user: 'postgres',
   database: 'hotel',
   password: '',
