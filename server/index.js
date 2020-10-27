@@ -10,7 +10,10 @@ const cassandraCRUD = require('./cassandra-query.js');
 const app = express ();
 const port = 4001;
 
+
 app.use('/658cec7570338c84831097111c582417', express.static(path.join(__dirname, '../loaderio-658cec7570338c84831097111c582417.txt')));
+
+app.use(express.static(path.join(__dirname, '../dist')));
 
 app.get('/api/hotel/:hotelId', (req, res) => {
   console.time()
