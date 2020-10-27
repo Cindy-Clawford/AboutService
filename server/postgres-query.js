@@ -6,7 +6,7 @@ const pool = new Pool({
   host: '54.176.200.249',
   user: 'postgres',
   database: 'hotel',
-  password: '',
+  password: 'postgres',
   port: 5432
 })
 
@@ -18,6 +18,7 @@ function postgresGet(filter) {
       if (err) {
         reject(err.stack)
       }
+      console.log(client)
       client.query(queryString, (err, results) => {
         release()
         if (err) {
