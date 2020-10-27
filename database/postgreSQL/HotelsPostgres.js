@@ -7,7 +7,7 @@ const pool = new Pool({
   user: 'postgres',
   database: 'hotel',
   password: '',
-  port: 5433
+  port: 5432
 })
 
 var inputFile = path.join(__dirname, '../../datafile.csv')
