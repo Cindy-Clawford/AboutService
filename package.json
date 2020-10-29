@@ -52,6 +52,7 @@
     "@babel/preset-react": "^7.10.4",
     "@shelf/jest-mongodb": "^1.2.3",
     "babel-loader": "^8.1.0",
+    "compression-webpack-plugin": "^6.0.4",
     "jest": "^26.4.2",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
