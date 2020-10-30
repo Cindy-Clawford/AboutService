@@ -14,6 +14,12 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 app.use('/loaderio-658cec7570338c84831097111c582417.txt', express.static(path.join(__dirname, '../loaderio-658cec7570338c84831097111c582417.txt')));
 
+app.get('*.js', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
 app.get('/api/hotel/:hotelId', (req, res) => {
   console.time()
   let filter = {hotel_name: req.params.hotelId}
@@ -64,7 +70,6 @@ app.get('/:hotelName', (req, res) => {
     }
   })
 })
-
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
