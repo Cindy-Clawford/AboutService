@@ -3,7 +3,9 @@ const path = require('path')
 const { Pool, Client } = require('pg')
 
 const pool = new Pool({
-  host: '54.176.200.249',
+  // START HERE FOR DEPLOYMENT WHEN WORKING ON HORIZ SCALING
+  // GET A HOST SERVER UP FROM AWS EC2
+  host: '54.219.46.62',
   user: 'postgres',
   database: 'hotel',
   password: 'postgres',
