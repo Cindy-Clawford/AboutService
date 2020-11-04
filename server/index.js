@@ -12,7 +12,7 @@ const port = 4001;
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
-app.use('/loaderio-658cec7570338c84831097111c582417.txt', express.static(path.join(__dirname, '../loaderio-658cec7570338c84831097111c582417.txt')));
+app.use('/loaderio-bc544f1b80f832f849812d773a91fff9.txt', express.static(path.join(__dirname, '../loaderio-bc544f1b80f832f849812d773a91fff9.txt')));
 
 // app.get('*.js', function (req, res, next) {
 //   req.url = req.url + '.gz';
