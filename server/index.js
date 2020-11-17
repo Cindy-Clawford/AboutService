@@ -1,9 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const mongoCRUD = require('./mongodb-query.js');
 const postgresCRUD = require('./postgres-query.js');
-const cassandraCRUD = require('./cassandra-query.js');
 require('newrelic');
 
 
@@ -13,12 +11,6 @@ const port = 4001;
 app.use(express.static(path.join(__dirname, '../dist')));
 
 app.use('/loaderio-bc544f1b80f832f849812d773a91fff9.txt', express.static(path.join(__dirname, '../loaderio-bc544f1b80f832f849812d773a91fff9.txt')));
-
-// app.get('*.js', function (req, res, next) {
-//   req.url = req.url + '.gz';
-//   res.set('Content-Encoding', 'gzip');
-//   next();
-// });
 
 app.get('/api/hotel/:hotelId', (req, res) => {
   console.time()
@@ -30,30 +22,32 @@ app.get('/api/hotel/:hotelId', (req, res) => {
   })
 })
 
-// app.post('/api/hotel/:hotelId', (req, res) => {
-//   let newEntry = req.body;
-//   let genericPost = mongoCRUD.mongoPost(newEntry);
-//   genericGet.then((result) => {
-//     res.send(result);
-//   })
-// })
+/*
+app.post('/api/hotel/:hotelId', (req, res) => {
+  let newEntry = req.body;
+  let genericPost = mongoCRUD.mongoPost(newEntry);
+  genericGet.then((result) => {
+    res.send(result);
+  })
+})
 
-// app.put('/api/hotel/:hotelId', (req, res) => {
-//   let update = req.body;
-//   let filter = {hotel_name: req.params.hotelId}
-//   let genericPut = mongoCRUD.mongoPut(filter, update);
-//   genericPut.then((result) => {
-//     res.send(result);
-//   })
-// })
+app.put('/api/hotel/:hotelId', (req, res) => {
+  let update = req.body;
+  let filter = {hotel_name: req.params.hotelId}
+  let genericPut = mongoCRUD.mongoPut(filter, update);
+  genericPut.then((result) => {
+    res.send(result);
+  })
+})
 
-// app.delete('/api/hotel/:hotelId', (req, res) => {
-//   let filter = {hotel_name: req.params.hotelId}
-//   let genericDelete = mongoCRUD.mongoDelete(filter);
-//   genericDelete.then((result) => {
-//     res.send(result);
-//   })
-// })
+app.delete('/api/hotel/:hotelId', (req, res) => {
+  let filter = {hotel_name: req.params.hotelId}
+  let genericDelete = mongoCRUD.mongoDelete(filter);
+  genericDelete.then((result) => {
+    res.send(result);
+  })
+})
+*/
 
 app.get('/:hotelName', (req, res) => {
   const fileName = 'index.html';

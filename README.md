@@ -2,7 +2,7 @@
 This is a module of a trip review and booking website. The module focuses on the "about" section of a hotel.
 
 ## Setup
-- Database generation script: "generate-data"
+- Database generation script: "generate:data"
 - Build webpack and bundle: "build"
 - Run the local server: "start"
 
@@ -10,8 +10,7 @@ This is a module of a trip review and booking website. The module focuses on the
 - The server is set to run at local port 4001.
 
 ## Database
-- Legacy code is based off MongoDB. Currently the database seeding only works for MongoDB at: "seed-mongo."
-- Future implementation of additional databases are planned for PostgreSQL and Cassandra. Seeding scripts will be created.
+- Legacy code is based off PostgreSQL. Currently the database seeding only works for PostgreSQL at: "seed:postgres"
 
 ## API
 - GET: /api/hotel/:hotelId
